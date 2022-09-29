@@ -25,5 +25,11 @@ public class EmployeeDirectory {
     public void setDatabase(ArrayList<Employee> database) {
         this.database = database;
     }
+    
+    public Employee addNewEmployee(){
+        Employee newEmployee = new Employee();
+        database.add(newEmployee);
+        return newEmployee;
+    }
 
 }

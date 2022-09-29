@@ -4,6 +4,8 @@
  */
 package ui;
 
+import model.EmployeeDirectory;
+
 /**
  *
  * @author gorubhambhani
@@ -13,8 +15,13 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    
+    EmployeeDirectory database;
+    
     public MainJFrame() {
         initComponents();
+        
+        database = new EmployeeDirectory();
     }
 
     /**
@@ -65,11 +72,11 @@ public class MainJFrame extends javax.swing.JFrame {
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
-                .addGap(125, 125, 125)
+                .addGap(229, 229, 229)
                 .addComponent(btnCreateEmp)
                 .addGap(18, 18, 18)
                 .addComponent(btnViewEmp)
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addContainerGap(312, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(controlPanel);
@@ -85,7 +92,7 @@ public class MainJFrame extends javax.swing.JFrame {
         workSpaceLayout.setHorizontalGroup(
             workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, workSpaceLayout.createSequentialGroup()
-                .addContainerGap(155, Short.MAX_VALUE)
+                .addContainerGap(205, Short.MAX_VALUE)
                 .addGroup(workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2))
@@ -94,7 +101,7 @@ public class MainJFrame extends javax.swing.JFrame {
         workSpaceLayout.setVerticalGroup(
             workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(workSpaceLayout.createSequentialGroup()
-                .addContainerGap(453, Short.MAX_VALUE)
+                .addContainerGap(553, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3))
@@ -128,6 +135,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnCreateEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEmpActionPerformed
         // TODO add your handling code here:
+        CreateEmployeeJPanel createPanel = new CreateEmployeeJPanel(database);
+        splitPane.setRightComponent(createPanel);
     }//GEN-LAST:event_btnCreateEmpActionPerformed
 
     /**

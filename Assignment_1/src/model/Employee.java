@@ -16,8 +16,10 @@ public class Employee {
     private String empGender;
     private String empJoinDate;
     private String empLevel;
+    private String empTeamInfo;
     private String empPosTitle;
-    private String empContactInfo;
+    private int mobile;
+    private String email;
     private String empImage;
 
     public String getEmpName() {
@@ -68,6 +70,14 @@ public class Employee {
         this.empLevel = empLevel;
     }
 
+    public String getEmpTeamInfo() {
+        return empTeamInfo;
+    }
+
+    public void setEmpTeamInfo(String empTeamInfo) {
+        this.empTeamInfo = empTeamInfo;
+    }
+
     public String getEmpPosTitle() {
         return empPosTitle;
     }
@@ -76,12 +86,20 @@ public class Employee {
         this.empPosTitle = empPosTitle;
     }
 
-    public String getEmpContactInfo() {
-        return empContactInfo;
+    public int getMobile() {
+        return mobile;
     }
 
-    public void setEmpContactInfo(String empContactInfo) {
-        this.empContactInfo = empContactInfo;
+    public void setMobile(int mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getEmpImage() {
