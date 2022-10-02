@@ -64,6 +64,9 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
         btnUpload = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
+        date = new javax.swing.JComboBox<>();
+        month = new javax.swing.JComboBox<>();
+        year = new javax.swing.JComboBox<>();
 
         lblName.setText("Name");
 
@@ -146,6 +149,12 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Create New Employee");
 
+        date.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }));
+
+        year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
+
         javax.swing.GroupLayout workSpaceLayout = new javax.swing.GroupLayout(workSpace);
         workSpace.setLayout(workSpaceLayout);
         workSpaceLayout.setHorizontalGroup(
@@ -192,7 +201,13 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
                                 .addComponent(rbFemale)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(rbOther))
-                            .addComponent(tfName, javax.swing.GroupLayout.Alignment.LEADING))))
+                            .addComponent(tfName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, workSpaceLayout.createSequentialGroup()
+                                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(workSpaceLayout.createSequentialGroup()
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,7 +237,11 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
                     .addComponent(rbOther)
                     .addComponent(rbFemale))
                 .addGap(18, 18, 18)
-                .addComponent(lblStartDate)
+                .addGroup(workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblStartDate)
+                    .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLevel)
@@ -266,7 +285,7 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addComponent(workSpace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -309,12 +328,12 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         String name = tfName.getText();
-        int id = Integer.parseInt(tfId.getText());
+        String id = tfId.getText();
         int age = Integer.parseInt(tfAge.getText());
         String gender = getSelectedGender();
 
 
-//        String startDate
+        String startDate = date.getSelectedItem()+"/"+month.getSelectedItem()+"/"+year.getSelectedItem();
         String level = tfLevel.getText();
         String teamInfo = tfTeamInfo.getText();
         String posTitle = tfPosTitle.getText();
@@ -329,7 +348,7 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
         emp.setEmpId(id);
         emp.setEmpAge(age);
         emp.setEmpGender(gender);
-//        emp.setEmpJoinDate();
+        emp.setEmpJoinDate(startDate);
         emp.setEmpLevel(level);
         emp.setEmpTeamInfo(teamInfo);
         emp.setEmpPosTitle(posTitle);
@@ -343,7 +362,9 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
         tfId.setText("");
         tfAge.setText("");
         genderGrp.clearSelection();
-//        String startDate
+        date.setSelectedIndex(0);
+        month.setSelectedIndex(0);
+        year.setSelectedIndex(0);
         tfLevel.setText("");
         tfTeamInfo.setText("");
         tfPosTitle.setText("");
@@ -357,6 +378,7 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpload;
+    private javax.swing.JComboBox<String> date;
     private javax.swing.ButtonGroup genderGrp;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblEmail;
@@ -370,6 +392,7 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblStartDate;
     private javax.swing.JLabel lblTeamInfo;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JComboBox<String> month;
     private javax.swing.JRadioButton rbFemale;
     private javax.swing.JRadioButton rbMale;
     private javax.swing.JRadioButton rbOther;
@@ -382,5 +405,6 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField tfPosTitle;
     private javax.swing.JTextField tfTeamInfo;
     private javax.swing.JPanel workSpace;
+    private javax.swing.JComboBox<String> year;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,7 +11,7 @@ package model;
 public class Employee {
     
     private String empName;
-    private int empId;
+    private String empId;
     private int empAge;
     private String empGender;
     private String empJoinDate;
@@ -30,24 +30,32 @@ public class Employee {
         this.empName = empName;
     }
 
-    public Integer getEmpId() {
+    public String getEmpId() {
         return empId;
     }
 
-    public void setEmpId(Integer empId) {
+    public void setEmpId(String empId) {
         this.empId = empId;
     }
 
-    public Integer getEmpAge() {
+    public int getEmpAge() {
         return empAge;
     }
 
-    public void setEmpAge(Integer empAge) {
+    public void setEmpAge(int empAge) {
         this.empAge = empAge;
     }
 
     public String getEmpGender() {
         return empGender;
+    }
+    
+    public int getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(int mobile) {
+        this.mobile = mobile;
     }
 
     public void setEmpGender(String empGender) {
@@ -86,14 +94,6 @@ public class Employee {
         this.empPosTitle = empPosTitle;
     }
 
-    public int getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(int mobile) {
-        this.mobile = mobile;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -112,7 +112,7 @@ public class Employee {
     
     @Override
     public String toString(){
-        return empJoinDate;
+        return empId;
     }
     
 }

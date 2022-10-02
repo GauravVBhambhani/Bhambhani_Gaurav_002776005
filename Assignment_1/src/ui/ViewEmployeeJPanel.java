@@ -75,6 +75,9 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
         btnViewDetails1 = new javax.swing.JButton();
         empImg = new javax.swing.JLabel();
         btnBrowse = new javax.swing.JButton();
+        date = new javax.swing.JComboBox<>();
+        month = new javax.swing.JComboBox<>();
+        year = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmployee = new javax.swing.JTable();
 
@@ -191,6 +194,17 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
             }
         });
 
+        date.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }));
+        month.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                monthActionPerformed(evt);
+            }
+        });
+
+        year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
+
         javax.swing.GroupLayout workSpaceLayout = new javax.swing.GroupLayout(workSpace);
         workSpace.setLayout(workSpaceLayout);
         workSpaceLayout.setHorizontalGroup(
@@ -236,7 +250,13 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnDeleteDetails))
                             .addComponent(tfPosTitle)
-                            .addComponent(tfMobileNumber))))
+                            .addComponent(tfMobileNumber)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, workSpaceLayout.createSequentialGroup()
+                                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addGroup(workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, workSpaceLayout.createSequentialGroup()
@@ -276,7 +296,11 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
                             .addComponent(rbOther)
                             .addComponent(rbFemale))
                         .addGap(18, 18, 18)
-                        .addComponent(lblStartDate))
+                        .addGroup(workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblStartDate)
+                            .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(workSpaceLayout.createSequentialGroup()
                         .addComponent(empImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
@@ -355,7 +379,7 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(lblTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(workSpace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -407,13 +431,16 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
 //        int getSelectedRowNum = tblEmployee.getSelectedRowCount();
         
         DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
+        
+        int selectedRowIndex = tblEmployee.getSelectedRow();
+        Employee selectedEmp = (Employee) model.getValueAt(selectedRowIndex, 0);
 
         if(tblEmployee.getSelectedRowCount() == 1){
             String name = tfName.getText();
-            int id = Integer.parseInt(tfId.getText());
+            String id = tfId.getText();
             int age = Integer.parseInt(tfAge.getText());
             String gender = getSelectedGender();
-//          String startDate
+            String startDate = date.getSelectedItem()+"/"+month.getSelectedItem()+"/"+year.getSelectedItem();
             String level = tfLevel.getText();
             String teamInfo = tfTeamInfo.getText();
             String posTitle = tfPosTitle.getText();
@@ -421,19 +448,29 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
             String email = tfEmail.getText();
 //          String photo
 
-            model.setValueAt(id, tblEmployee.getSelectedRow(), 1);
-            model.setValueAt(name, tblEmployee.getSelectedRow(), 2);
-            model.setValueAt(age, tblEmployee.getSelectedRow(), 3);
-            model.setValueAt(gender, tblEmployee.getSelectedRow(), 4);
-            model.setValueAt(level, tblEmployee.getSelectedRow(), 5);
-            model.setValueAt(posTitle, tblEmployee.getSelectedRow(), 6);
-            model.setValueAt(email, tblEmployee.getSelectedRow(), 7);
-            model.setValueAt(mobile, tblEmployee.getSelectedRow(), 8);
-//            model.setValueAt(startDate, tblEmployee.getSelectedRow(), 9);
-            model.setValueAt(teamInfo, tblEmployee.getSelectedRow(), 10);
-
-            JOptionPane.showMessageDialog(this, "Update Successful!");
+            model.setValueAt(id, tblEmployee.getSelectedRow(), 0);
+            model.setValueAt(name, tblEmployee.getSelectedRow(), 1);
+            model.setValueAt(age, tblEmployee.getSelectedRow(), 2);
+            model.setValueAt(gender, tblEmployee.getSelectedRow(), 3);
+            model.setValueAt(level, tblEmployee.getSelectedRow(), 4);
+            model.setValueAt(posTitle, tblEmployee.getSelectedRow(),5);
+            model.setValueAt(email, tblEmployee.getSelectedRow(), 6);
+            model.setValueAt(mobile, tblEmployee.getSelectedRow(), 7);
+            model.setValueAt(startDate, tblEmployee.getSelectedRow(),8);
+            model.setValueAt(teamInfo, tblEmployee.getSelectedRow(), 9);
             
+            selectedEmp.setEmpId(id);
+            selectedEmp.setEmpName(name);
+            selectedEmp.setEmpAge(age);
+            selectedEmp.setEmpGender(gender);
+            selectedEmp.setEmpJoinDate(startDate);
+            selectedEmp.setEmpLevel(level);
+            selectedEmp.setEmpPosTitle(posTitle);
+            selectedEmp.setMobile(mobile);
+            selectedEmp.setEmpTeamInfo(teamInfo);
+            selectedEmp.setEmail(email);
+            
+            JOptionPane.showMessageDialog(this, "Update Successful!");
         }
         else{
             if(tblEmployee.getRowCount() == 0){
@@ -444,7 +481,7 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
             }
         }
         
-        
+        database.updateEmployee(selectedEmp, selectedRowIndex);
     }//GEN-LAST:event_btnUpdateDetailsActionPerformed
 
     private void btnDeleteDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteDetailsActionPerformed
@@ -484,9 +521,24 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
         tfId.setText(String.valueOf(selectedEmp.getEmpId()));
         tfName.setText(selectedEmp.getEmpName());
         tfAge.setText(String.valueOf(selectedEmp.getEmpAge()));
-        //tfGender
         
-        //tfJoiningdate
+        String gender = selectedEmp.getEmpGender();
+
+        
+        if (gender.equalsIgnoreCase("male")){
+            rbMale.setSelected(true);
+        }
+        else if (gender.equalsIgnoreCase("female")){
+            rbFemale.setSelected(true);
+        }
+        else{
+            rbOther.setSelected(true);
+        }
+        
+        date.setSelectedItem(selectedEmp.getEmpJoinDate().split("/")[0]);
+        month.setSelectedItem(selectedEmp.getEmpJoinDate().split("/")[1]);
+        year.setSelectedItem(selectedEmp.getEmpJoinDate().split("/")[2]);
+        
         tfLevel.setText(selectedEmp.getEmpLevel());
         tfTeamInfo.setText(selectedEmp.getEmpTeamInfo());
         tfPosTitle.setText(selectedEmp.getEmpPosTitle());
@@ -530,6 +582,10 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbOtherActionPerformed
 
+    private void monthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_monthActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBrowse;
@@ -537,6 +593,7 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnUpdateDetails;
     private javax.swing.JButton btnViewDetails;
     private javax.swing.JButton btnViewDetails1;
+    private javax.swing.JComboBox<String> date;
     private javax.swing.JLabel empImg;
     private javax.swing.ButtonGroup genderGrp;
     private javax.swing.JScrollPane jScrollPane1;
@@ -551,6 +608,7 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblStartDate;
     private javax.swing.JLabel lblTeamInfo;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JComboBox<String> month;
     private javax.swing.JRadioButton rbFemale;
     private javax.swing.JRadioButton rbMale;
     private javax.swing.JRadioButton rbOther;
@@ -564,6 +622,7 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField tfPosTitle;
     private javax.swing.JTextField tfTeamInfo;
     private javax.swing.JPanel workSpace;
+    private javax.swing.JComboBox<String> year;
     // End of variables declaration//GEN-END:variables
 
     private void populateEmployeeTable() {
@@ -576,7 +635,9 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
             Object[] row = new Object[10];
             
 //            row[0] = emp.getEmpId();
+
             row[0] = emp;
+            
             row[1] = emp.getEmpName();
             row[2] = emp.getEmpAge();
             row[3] = emp.getEmpGender();
@@ -584,9 +645,8 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
             row[5] = emp.getEmpPosTitle();
             row[6] = emp.getEmail();
             row[7] = emp.getMobile();
-//            row[8] = emp.getEmpJoinDate();
+            row[8] = emp.getEmpJoinDate();
             row[9] = emp.getEmpTeamInfo();
-//            row[10] = emp.getEmail();
 
             model.addRow(row);
         }

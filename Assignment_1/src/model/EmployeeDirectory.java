@@ -35,7 +35,11 @@ public class EmployeeDirectory {
     public void deleteEmployee(Employee selectedEmp) {
         
         database.remove(selectedEmp);
-
+    }
+    
+    public void updateEmployee(Employee selectedEmp, int index){
+        database.set(index, selectedEmp);
+        
     }
 
 }
