@@ -15,7 +15,7 @@ public class EmployeeDirectory {
     private ArrayList<Employee> database;
     
     public EmployeeDirectory(){
-        database = new ArrayList<Employee>();
+        database = new ArrayList<>();
     }
 
     public ArrayList<Employee> getDatabase() {
@@ -43,47 +43,47 @@ public class EmployeeDirectory {
     }
     
     
-    public ArrayList<Employee> searchEmployee(String key)
+    public ArrayList<Employee> searchEmpName(String key)
     {
-        ArrayList<Employee> searchEmployee = new ArrayList();
+        ArrayList<Employee> searchEmpName = new ArrayList();
         for(Employee employee: database)
         {
             if(employee.getEmpName().equals(key))
             {
                 if(employee.getEmpName()!=null)
                 {
-                    searchEmployee.add(employee);
+                    searchEmpName.add(employee);
                 }
             }
         }
-        return searchEmployee;
+        return searchEmpName;
     }    
 
-    public ArrayList<Employee> searchEmployeeID(String key)
+    public ArrayList<Employee> searchEmpID(String id)
     {
-        ArrayList<Employee> searchEmployeeID = new ArrayList();
+        ArrayList<Employee> searchEmpID = new ArrayList();
         for(Employee employee: database)
         {
-            if(employee.getEmpId().equals(key))
+            if(employee.getEmpId().equals(id))
             {
            
-                searchEmployeeID.add(employee);
+                searchEmpID.add(employee);
                
             }
         }
-        return searchEmployeeID;
+        return searchEmpID;
     }        
 
-    public ArrayList<Employee> searchPosTitle(String title)
+    public ArrayList<Employee> searchPosT(String title)
     {
-        ArrayList<Employee> searchPosTitle = new ArrayList();
+        ArrayList<Employee> searchPosT = new ArrayList();
         for(Employee employee: database)
         {
             if(employee.getEmpPosTitle().equals(title)) {
-                searchPosTitle.add(employee);  
+                searchPosT.add(employee);  
             }
         }
-        return searchPosTitle;
+        return searchPosT;
     }        
     
 }

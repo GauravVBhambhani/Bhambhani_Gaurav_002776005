@@ -46,10 +46,13 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        lblTitle.setBackground(new java.awt.Color(153, 255, 255));
         lblTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 153, 51));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Employee Management System");
+
+        controlPanel.setBackground(new java.awt.Color(255, 204, 204));
 
         btnCreateEmp.setText("Create Employee");
         btnCreateEmp.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +86,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(btnCreateEmp)
                 .addGap(18, 18, 18)
                 .addComponent(btnViewEmp)
-                .addContainerGap(312, Short.MAX_VALUE))
+                .addContainerGap(512, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(controlPanel);
@@ -99,7 +102,7 @@ public class MainJFrame extends javax.swing.JFrame {
         workSpaceLayout.setHorizontalGroup(
             workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, workSpaceLayout.createSequentialGroup()
-                .addContainerGap(205, Short.MAX_VALUE)
+                .addContainerGap(405, Short.MAX_VALUE)
                 .addGroup(workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2))
@@ -108,7 +111,7 @@ public class MainJFrame extends javax.swing.JFrame {
         workSpaceLayout.setVerticalGroup(
             workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(workSpaceLayout.createSequentialGroup()
-                .addContainerGap(553, Short.MAX_VALUE)
+                .addContainerGap(753, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3))

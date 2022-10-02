@@ -30,7 +30,8 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
      */
     
     EmployeeDirectory database;
-    
+    Employee selectedEmp;
+            
     public ViewEmployeeJPanel(EmployeeDirectory database) {
         initComponents();
         
@@ -89,6 +90,8 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
         lblTitle.setForeground(new java.awt.Color(255, 0, 51));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Employee Details");
+
+        workSpace.setBackground(new java.awt.Color(255, 204, 204));
 
         lblName.setText("Name");
 
@@ -312,7 +315,6 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
                     .addGroup(workSpaceLayout.createSequentialGroup()
                         .addComponent(empImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(46, 46, 46)))
-                .addGap(18, 18, 18)
                 .addGroup(workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLevel)
                     .addComponent(tfLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -336,6 +338,7 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
                 .addGap(16, 16, 16))
         );
 
+        tblEmployee.setBackground(new java.awt.Color(255, 255, 204));
         tblEmployee.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null},
@@ -386,7 +389,7 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(lblTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(workSpace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -431,12 +434,10 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
     private void btnUpdateDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateDetailsActionPerformed
         // TODO add your handling code here:
         
-//        int getSelectedRowNum = tblEmployee.getSelectedRowCount();
-        
         DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
         
         int selectedRowIndex = tblEmployee.getSelectedRow();
-        Employee selectedEmp = (Employee) model.getValueAt(selectedRowIndex, 0);
+        selectedEmp = (Employee) model.getValueAt(selectedRowIndex, 0);
 
         if(tblEmployee.getSelectedRowCount() == 1){
             String name = tfName.getText();
@@ -548,7 +549,6 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
         tfMobileNumber.setText(String.valueOf(selectedEmp.getMobile()));
         tfEmail.setText(selectedEmp.getEmail());
         
-        
         try {
             BufferedImage bfImg = ImageIO.read(new File(selectedEmp.getEmpImage()));
             ImageIcon icon = new ImageIcon(bfImg);
@@ -558,12 +558,6 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
         } catch(IOException e) {
             System.out.println("Error");
         }
-        
-        
-        
-        //tfImg
-        
-        
     }//GEN-LAST:event_btnViewDetailsActionPerformed
 
     private void tblEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmployeeMouseClicked
@@ -648,7 +642,6 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
 //            row[0] = emp.getEmpId();
 
             row[0] = emp;
-            
             row[1] = emp.getEmpName();
             row[2] = emp.getEmpAge();
             row[3] = emp.getEmpGender();
@@ -662,15 +655,14 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
 
             model.addRow(row);
         }
-        
     }
 
-    private void searchByName(String text) {
+    private void searchByName(String name) {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     
         DefaultTableModel model = (DefaultTableModel)tblEmployee.getModel();
         model.setRowCount(0);
-        for(Employee emp : database.searchEmployee(text)){
+        for(Employee emp : database.searchEmpName(name)){
             Object[] row = new Object[11];
             row[0] = emp;
             
@@ -689,12 +681,12 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
         }
     }
 
-    private void searchByPosTitle(String text) {
+    private void searchByPosTitle(String pos) {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     
         DefaultTableModel model = (DefaultTableModel)tblEmployee.getModel();
         model.setRowCount(0);
-        for(Employee emp : database.searchPosTitle(text)){
+        for(Employee emp : database.searchPosT(pos)){
            Object[] row = new Object[11];
             row[0] = emp;
             
@@ -713,15 +705,14 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
     
     }
 }
-
-
-       private void searchByID(String nameid) {
+    
+       private void searchByID(String empid) {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     
         
           DefaultTableModel model = (DefaultTableModel)tblEmployee.getModel();
           model.setRowCount(0);
-          for(Employee emp : database.searchEmployeeID(nameid)){
+          for(Employee emp : database.searchEmpID(empid)){
           Object[] row = new Object[11];
           row[0] = emp;
             
