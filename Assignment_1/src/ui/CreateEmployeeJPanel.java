@@ -4,10 +4,14 @@
  */
 package ui;
 
+import java.awt.Image;
+import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import model.Employee;
 import model.EmployeeDirectory;
@@ -24,6 +28,8 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
     
     EmployeeDirectory database;
     Employee employee;
+    
+    String photoUrl;
     
     public CreateEmployeeJPanel(EmployeeDirectory database, Employee employee) {
         initComponents();
@@ -139,6 +145,11 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
         rbOther.setText("Other");
 
         btnUpload.setText("Upload");
+        btnUpload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUploadActionPerformed(evt);
+            }
+        });
 
         btnSave.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
         btnSave.setText("Save");
@@ -423,7 +434,7 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
             String posTitle = tfPosTitle.getText();
             String mobile = tfMobileNumber.getText();
             String emailId = tfEmail.getText();
-//          String photo
+//            String photo 
         
             Employee emp = database.addNewEmployee();
 
@@ -437,7 +448,8 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
             emp.setEmpPosTitle(posTitle);
             emp.setMobile(mobile);
             emp.setEmail(emailId);
-    //        emp.setPhoto
+            emp.setEmpImage(this.photoUrl);
+//            emp.setEmpPhoto(photo);
 
         JOptionPane.showMessageDialog(this, "New Employee Created.");
         
@@ -453,12 +465,27 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
         tfPosTitle.setText("");
         tfMobileNumber.setText("");
         tfEmail.setText("");
+        this.photoUrl = null;
 //        String photo
         }
         else{
             JOptionPane.showMessageDialog(this, "Please fill all the fields.");
         } 
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadActionPerformed
+        // TODO add your handling code here:
+        
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+        File f = chooser.getSelectedFile();
+        String fileName = f.getAbsolutePath();
+        this.photoUrl = fileName;
+//        Image getAbsPath = null;
+//        ImageIcon icon = new ImageIcon(fileName);
+//        Image image = icon.getImage().getScaledInstance(empImg.getWidth(), empImg.getHeight(), Image.SCALE_SMOOTH);
+//        empImg.setIcon(icon)
+    }//GEN-LAST:event_btnUploadActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

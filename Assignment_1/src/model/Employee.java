@@ -107,7 +107,7 @@ public class Employee {
     }
 
     public void setEmpImage(String empImage) {
-        this.empImage = empImage;
+        this.empImage = new String(empImage);
     }
     
     @Override

@@ -5,8 +5,11 @@
 package ui;
 
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.Enumeration;
+import javax.imageio.ImageIO;
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -69,12 +72,10 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
         rbMale = new javax.swing.JRadioButton();
         rbFemale = new javax.swing.JRadioButton();
         rbOther = new javax.swing.JRadioButton();
-        btnViewDetails = new javax.swing.JButton();
         btnUpdateDetails = new javax.swing.JButton();
         btnDeleteDetails = new javax.swing.JButton();
-        btnViewDetails1 = new javax.swing.JButton();
+        btnViewDetails = new javax.swing.JButton();
         empImg = new javax.swing.JLabel();
-        btnBrowse = new javax.swing.JButton();
         date = new javax.swing.JComboBox<>();
         month = new javax.swing.JComboBox<>();
         year = new javax.swing.JComboBox<>();
@@ -158,13 +159,6 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnViewDetails.setText("Search Details");
-        btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewDetailsActionPerformed(evt);
-            }
-        });
-
         btnUpdateDetails.setText("Update Details");
         btnUpdateDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,21 +173,10 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnViewDetails1.setText("View Details");
-        btnViewDetails1.addActionListener(new java.awt.event.ActionListener() {
+        btnViewDetails.setText("View Details");
+        btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewDetails1ActionPerformed(evt);
-            }
-        });
-
-        empImg.setBackground(new java.awt.Color(255, 0, 0));
-        empImg.setForeground(new java.awt.Color(255, 51, 51));
-        empImg.setText("h");
-
-        btnBrowse.setText("Browse");
-        btnBrowse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBrowseActionPerformed(evt);
+                btnViewDetailsActionPerformed(evt);
             }
         });
 
@@ -278,23 +261,17 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, workSpaceLayout.createSequentialGroup()
                                         .addComponent(btnViewDetails)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnViewDetails1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnUpdateDetails)))
+                                        .addComponent(btnUpdateDetails)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnDeleteDetails)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnDeleteDetails)
                                     .addComponent(btnSearchId)
                                     .addComponent(btnSearchName)
                                     .addComponent(btnSearchPos))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addGroup(workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, workSpaceLayout.createSequentialGroup()
-                        .addComponent(btnBrowse)
-                        .addGap(76, 76, 76))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, workSpaceLayout.createSequentialGroup()
-                        .addComponent(empImg, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addComponent(empImg, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
         workSpaceLayout.setVerticalGroup(
             workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,7 +282,6 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
                         .addGroup(workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnUpdateDetails)
                             .addComponent(btnDeleteDetails)
-                            .addComponent(btnViewDetails1)
                             .addComponent(btnViewDetails))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addGroup(workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -335,9 +311,7 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
                             .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(workSpaceLayout.createSequentialGroup()
                         .addComponent(empImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBrowse)
-                        .addGap(5, 5, 5)))
+                        .addGap(46, 46, 46)))
                 .addGap(18, 18, 18)
                 .addGroup(workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLevel)
@@ -454,10 +428,6 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbMaleActionPerformed
 
-    private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnViewDetailsActionPerformed
-
     private void btnUpdateDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateDetailsActionPerformed
         // TODO add your handling code here:
         
@@ -538,7 +508,7 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
         populateEmployeeTable();
     }//GEN-LAST:event_btnDeleteDetailsActionPerformed
 
-    private void btnViewDetails1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetails1ActionPerformed
+    private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
         // TODO add your handling code here:
         
         int selectedRowIndex = tblEmployee.getSelectedRow();
@@ -577,39 +547,28 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
         tfPosTitle.setText(selectedEmp.getEmpPosTitle());
         tfMobileNumber.setText(String.valueOf(selectedEmp.getMobile()));
         tfEmail.setText(selectedEmp.getEmail());
+        
+        
+        try {
+            BufferedImage bfImg = ImageIO.read(new File(selectedEmp.getEmpImage()));
+            ImageIcon icon = new ImageIcon(bfImg);
+            Image img = icon.getImage().getScaledInstance(empImg.getWidth(), empImg.getHeight(), Image.SCALE_SMOOTH);
+            icon = new ImageIcon(img);
+            empImg.setIcon(icon);
+        } catch(IOException e) {
+            System.out.println("Error");
+        }
+        
+        
+        
         //tfImg
         
         
-    }//GEN-LAST:event_btnViewDetails1ActionPerformed
+    }//GEN-LAST:event_btnViewDetailsActionPerformed
 
     private void tblEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmployeeMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tblEmployeeMouseClicked
-
-    private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseActionPerformed
-        // TODO add your handling code here:
-        
-        JFileChooser browseImg = new JFileChooser();
-        
-        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg");
-        browseImg.addChoosableFileFilter(fnef);
-        
-        int showOpenDialogue = browseImg.showOpenDialog(null);
-        if (showOpenDialogue == JFileChooser.APPROVE_OPTION){
-            File selectedImg = browseImg.getSelectedFile();
-            String selectedImgPath = selectedImg.getAbsolutePath();
-            
-            JOptionPane.showMessageDialog(null, selectedImgPath);
-            
-            ImageIcon ic = new ImageIcon(selectedImgPath);
-            
-            Image image = ic.getImage().getScaledInstance(empImg.getWidth(), empImg.getHeight(), Image.SCALE_SMOOTH);
-            
-            
-            empImg.setIcon(new ImageIcon(image));
-        }
-        
-    }//GEN-LAST:event_btnBrowseActionPerformed
 
     private void rbOtherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbOtherActionPerformed
         // TODO add your handling code here:
@@ -639,14 +598,12 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBrowse;
     private javax.swing.JButton btnDeleteDetails;
     private javax.swing.JButton btnSearchId;
     private javax.swing.JButton btnSearchName;
     private javax.swing.JButton btnSearchPos;
     private javax.swing.JButton btnUpdateDetails;
     private javax.swing.JButton btnViewDetails;
-    private javax.swing.JButton btnViewDetails1;
     private javax.swing.JComboBox<String> date;
     private javax.swing.JLabel empImg;
     private javax.swing.ButtonGroup genderGrp;
@@ -686,7 +643,7 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for (Employee emp: database.getDatabase()){
-            Object[] row = new Object[10];
+            Object[] row = new Object[11];
             
 //            row[0] = emp.getEmpId();
 
@@ -701,6 +658,7 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
             row[7] = emp.getMobile();
             row[8] = emp.getEmpJoinDate();
             row[9] = emp.getEmpTeamInfo();
+            row[10] = emp.getEmpImage();
 
             model.addRow(row);
         }
@@ -715,16 +673,17 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
         for(Employee emp : database.searchEmployee(text)){
             Object[] row = new Object[11];
             row[0] = emp;
-            row[1] = emp.getEmpId();
+            
+            row[1] = emp.getEmpName();
             row[2] = emp.getEmpAge();
             row[3] = emp.getEmpGender();
-            row[4] = emp.getEmpJoinDate();
-            row[5] = emp.getEmpLevel();
-            row[6] = emp.getEmpTeamInfo();
-            row[7] = emp.getEmpPosTitle();
-            row[8] = emp.getMobile();
-            row[9] = emp.getEmail();
-//           row[10] = dir.getGender();  
+            row[4] = emp.getEmpLevel();
+            row[5] = emp.getEmpPosTitle();
+            row[6] = emp.getEmail();
+            row[7] = emp.getMobile();
+            row[8] = emp.getEmpJoinDate();
+            row[10] = emp.getEmpImage();  
+ 
            model.addRow(row);
     
         }
@@ -736,18 +695,20 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel)tblEmployee.getModel();
         model.setRowCount(0);
         for(Employee emp : database.searchPosTitle(text)){
-           Object[] row = new Object[10];
+           Object[] row = new Object[11];
             row[0] = emp;
-            row[1] = emp.getEmpId();
+            
+            row[1] = emp.getEmpName();
             row[2] = emp.getEmpAge();
             row[3] = emp.getEmpGender();
-            row[4] = emp.getEmpJoinDate();
-            row[5] = emp.getEmpLevel();
-            row[6] = emp.getEmpTeamInfo();
-            row[7] = emp.getEmpPosTitle();
-            row[8] = emp.getMobile();
-            row[9] = emp.getEmail();
-//           row[10] = emp.getGender();  
+            row[4] = emp.getEmpLevel();
+            row[5] = emp.getEmpPosTitle();
+            row[6] = emp.getEmail();
+            row[7] = emp.getMobile();
+            row[8] = emp.getEmpJoinDate();
+            row[9] = emp.getEmpTeamInfo();
+            row[10] = emp.getEmpImage();  
+ 
            model.addRow(row);
     
     }
@@ -761,18 +722,19 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
           DefaultTableModel model = (DefaultTableModel)tblEmployee.getModel();
           model.setRowCount(0);
           for(Employee emp : database.searchEmployeeID(nameid)){
-          Object[] row = new Object[10];
+          Object[] row = new Object[11];
           row[0] = emp;
-          row[1] = emp.getEmpId();
-          row[2] = emp.getEmpAge();
-          row[3] = emp.getEmpGender();
-          row[4] = emp.getEmpJoinDate();
-          row[5] = emp.getEmpLevel();
-          row[6] = emp.getEmpTeamInfo();
-          row[7] = emp.getEmpPosTitle();
-          row[8] = emp.getMobile();
-          row[9] = emp.getEmail();
-//          row[10] = emp.getEmpGender();  
+            
+            row[1] = emp.getEmpName();
+            row[2] = emp.getEmpAge();
+            row[3] = emp.getEmpGender();
+            row[4] = emp.getEmpLevel();
+            row[5] = emp.getEmpPosTitle();
+            row[6] = emp.getEmail();
+            row[7] = emp.getMobile();
+            row[8] = emp.getEmpJoinDate();
+            row[9] = emp.getEmpTeamInfo();
+            row[10] = emp.getEmpImage();  
           model.addRow(row);
            
         }
