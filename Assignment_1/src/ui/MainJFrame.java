@@ -4,6 +4,7 @@
  */
 package ui;
 
+import model.Employee;
 import model.EmployeeDirectory;
 
 /**
@@ -17,6 +18,7 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     
     EmployeeDirectory database;
+    Employee employee;
     
     public MainJFrame() {
         initComponents();
@@ -140,7 +142,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnCreateEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEmpActionPerformed
         // TODO add your handling code here:
-        CreateEmployeeJPanel createPanel = new CreateEmployeeJPanel(database);
+        CreateEmployeeJPanel createPanel = new CreateEmployeeJPanel(database, employee);
         splitPane.setRightComponent(createPanel);
     }//GEN-LAST:event_btnCreateEmpActionPerformed
 

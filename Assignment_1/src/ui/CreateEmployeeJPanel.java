@@ -4,6 +4,8 @@
  */
 package ui;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.JOptionPane;
@@ -21,11 +23,13 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
      */
     
     EmployeeDirectory database;
+    Employee employee;
     
-    public CreateEmployeeJPanel(EmployeeDirectory database) {
+    public CreateEmployeeJPanel(EmployeeDirectory database, Employee employee) {
         initComponents();
         
         this.database = database;
+        this.employee = employee;
     }
 
     /**
@@ -327,34 +331,113 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
 
-        String name = tfName.getText();
-        String id = tfId.getText();
-        int age = Integer.parseInt(tfAge.getText());
-        String gender = getSelectedGender();
-
-
-        String startDate = date.getSelectedItem()+"/"+month.getSelectedItem()+"/"+year.getSelectedItem();
-        String level = tfLevel.getText();
-        String teamInfo = tfTeamInfo.getText();
-        String posTitle = tfPosTitle.getText();
-        int mobile = Integer.parseInt(tfMobileNumber.getText());
-        String email = tfEmail.getText();
+//        String name = tfName.getText();
+//        String id = tfId.getText();
+//        int age = Integer.parseInt(tfAge.getText());
+//        String gender = getSelectedGender();
+//        
+//        String startDate = date.getSelectedItem()+"/"+month.getSelectedItem()+"/"+year.getSelectedItem();
+//        String level = tfLevel.getText();
+//        String teamInfo = tfTeamInfo.getText();
+//        String posTitle = tfPosTitle.getText();
+//        int mobile = Integer.parseInt(tfMobileNumber.getText());
+//        String email = tfEmail.getText();
 //        String photo
-
-
-        Employee emp = database.addNewEmployee();
+        Employee employee = new Employee();
+        String chkLen;
+        chkLen=tfName.getText().trim();
+        if((!chkLen.isEmpty() && chkLen.length()>=2 && chkLen.chars().allMatch(Character::isLetter)))
+            employee.setEmpName(tfName.getText());
+        else{
+            JOptionPane.showMessageDialog(this,"Invalid Name.");
+            return;
+        }
         
-        emp.setEmpName(name);
-        emp.setEmpId(id);
-        emp.setEmpAge(age);
-        emp.setEmpGender(gender);
-        emp.setEmpJoinDate(startDate);
-        emp.setEmpLevel(level);
-        emp.setEmpTeamInfo(teamInfo);
-        emp.setEmpPosTitle(posTitle);
-        emp.setMobile(mobile);
-        emp.setEmail(email);
-//        emp.setPhoto
+        chkLen=tfId.getText().trim();
+        if(!chkLen.isEmpty()  &&  (chkLen.chars().allMatch(Character::isDigit) ) && chkLen.length()>=1)
+            employee.setEmpId(tfId.getText());
+        else{
+             JOptionPane.showMessageDialog(this,"Invalid Employee ID");
+             return;           
+        }
+        
+        chkLen=tfAge.getText().trim();
+        if(!chkLen.isEmpty()  &&  (chkLen.chars().allMatch(Character::isDigit) ) && chkLen.length()>=2)
+            employee.setEmpAge(Integer.parseInt(tfAge.getText()));
+        else{
+             JOptionPane.showMessageDialog(this,"Invalid Age");
+             return;
+        }
+         
+        chkLen=tfLevel.getText().trim();
+        if((!chkLen.isEmpty() && chkLen.length()>=2  &&  chkLen.chars().allMatch(Character::isLetter)))
+            employee.setEmpLevel(tfLevel.getText());
+            else{
+             JOptionPane.showMessageDialog(this,"Invalid Level.");
+             return;
+        }
+        
+        chkLen=tfTeamInfo.getText().trim();
+        if((!chkLen.isEmpty() && chkLen.length()>=2  &&  chkLen.chars().allMatch(Character::isLetter)))
+            employee.setEmpLevel(tfTeamInfo.getText());
+            else{
+             JOptionPane.showMessageDialog(this,"Invalid Team Information.");
+             return;
+        }
+        
+        chkLen=tfPosTitle.getText().trim();
+        if((!chkLen.isEmpty() && chkLen.length()>=2  &&  chkLen.chars().allMatch(Character::isLetter)))
+            employee.setEmpPosTitle(tfPosTitle.getText());
+            else{
+             JOptionPane.showMessageDialog(this,"Invalid Position Title.");
+             return;
+        }
+
+       
+        chkLen=tfMobileNumber.getText().trim();
+        if(!chkLen.isEmpty()&& chkLen.charAt(0)!='0' && chkLen.length()==10  &&  chkLen.chars().allMatch(Character::isDigit))
+            employee.setMobile(tfMobileNumber.getText());
+        else{
+             JOptionPane.showMessageDialog(this,"Invalid Mobile Number");
+             return;
+        }
+        
+        String email=tfEmail.getText().trim();
+        if(validEmail(email)){
+            employee.setEmail(tfEmail.getText());
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Invalid Email Address.");
+                return;
+        }  
+        
+//        DateFormat dateFormat = new SimpleDateFormat("dd/mmm/yyyy");
+        if(checkSpace()){
+            String name = tfName.getText();
+            String id = tfId.getText();
+            int age = Integer.parseInt(tfAge.getText());
+            String gender = getSelectedGender();
+            String startDate = date.getSelectedItem()+"/"+month.getSelectedItem()+"/"+year.getSelectedItem();
+            String level = tfLevel.getText();
+            String teamInfo = tfTeamInfo.getText();
+            String posTitle = tfPosTitle.getText();
+            String mobile = tfMobileNumber.getText();
+            String emailId = tfEmail.getText();
+//          String photo
+        
+            Employee emp = database.addNewEmployee();
+
+            emp.setEmpName(name);
+            emp.setEmpId(id);
+            emp.setEmpAge(age);
+            emp.setEmpGender(gender);
+            emp.setEmpJoinDate(startDate);
+            emp.setEmpLevel(level);
+            emp.setEmpTeamInfo(teamInfo);
+            emp.setEmpPosTitle(posTitle);
+            emp.setMobile(mobile);
+            emp.setEmail(emailId);
+    //        emp.setPhoto
 
         JOptionPane.showMessageDialog(this, "New Employee Created.");
         
@@ -371,7 +454,10 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
         tfMobileNumber.setText("");
         tfEmail.setText("");
 //        String photo
-        
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Please fill all the fields.");
+        } 
     }//GEN-LAST:event_btnSaveActionPerformed
 
 
@@ -407,4 +493,23 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel workSpace;
     private javax.swing.JComboBox<String> year;
     // End of variables declaration//GEN-END:variables
+
+
+    private boolean validEmail(String email) {    
+        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+        java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+        java.util.regex.Matcher m = p.matcher(email);
+        return m.matches(); 
+    }
+
+    private Boolean checkSpace(){
+        if(tfName.getText().length()==0||tfAge.getText().length()==0||tfId.getText().length()==0||tfLevel.getText().length()==0||tfTeamInfo.getText().length()==0||tfPosTitle.getText().length()==0||tfMobileNumber.getText().length()==0||tfEmail.getText().length()==0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
 }
+

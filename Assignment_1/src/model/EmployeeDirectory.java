@@ -41,5 +41,49 @@ public class EmployeeDirectory {
         database.set(index, selectedEmp);
         
     }
+    
+    
+    public ArrayList<Employee> searchEmployee(String key)
+    {
+        ArrayList<Employee> searchEmployee = new ArrayList();
+        for(Employee employee: database)
+        {
+            if(employee.getEmpName().equals(key))
+            {
+                if(employee.getEmpName()!=null)
+                {
+                    searchEmployee.add(employee);
+                }
+            }
+        }
+        return searchEmployee;
+    }    
 
+    public ArrayList<Employee> searchEmployeeID(String key)
+    {
+        ArrayList<Employee> searchEmployeeID = new ArrayList();
+        for(Employee employee: database)
+        {
+            if(employee.getEmpId().equals(key))
+            {
+           
+                searchEmployeeID.add(employee);
+               
+            }
+        }
+        return searchEmployeeID;
+    }        
+
+    public ArrayList<Employee> searchPosTitle(String title)
+    {
+        ArrayList<Employee> searchPosTitle = new ArrayList();
+        for(Employee employee: database)
+        {
+            if(employee.getEmpPosTitle().equals(title)) {
+                searchPosTitle.add(employee);  
+            }
+        }
+        return searchPosTitle;
+    }        
+    
 }

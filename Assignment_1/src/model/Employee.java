@@ -18,7 +18,7 @@ public class Employee {
     private String empLevel;
     private String empTeamInfo;
     private String empPosTitle;
-    private int mobile;
+    private String mobile;
     private String email;
     private String empImage;
 
@@ -50,11 +50,11 @@ public class Employee {
         return empGender;
     }
     
-    public int getMobile() {
+    public String getMobile() {
         return mobile;
     }
 
-    public void setMobile(int mobile) {
+    public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 

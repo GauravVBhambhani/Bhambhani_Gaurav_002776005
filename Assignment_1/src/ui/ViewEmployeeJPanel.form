@@ -65,12 +65,12 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                           <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="tfEmail" max="32767" attributes="0"/>
+                          <Component id="tfEmail" min="-2" pref="345" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -85,12 +85,7 @@
                               <Component id="lblMobileNumber" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="tfTeamInfo" alignment="0" max="32767" attributes="0"/>
-                              <Component id="tfLevel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="tfAge" alignment="0" max="32767" attributes="0"/>
-                              <Component id="tfId" alignment="0" max="32767" attributes="0"/>
-                              <Component id="tfName" alignment="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="rbMale" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -99,27 +94,41 @@
                                   <Component id="rbOther" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnViewDetails" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnViewDetails1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnUpdateDetails" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnDeleteDetails" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="tfPosTitle" max="32767" attributes="0"/>
-                              <Component id="tfMobileNumber" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="date" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="month" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="year" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="tfMobileNumber" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="tfPosTitle" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="tfTeamInfo" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="tfLevel" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="tfAge" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="tfId" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="tfName" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="btnViewDetails" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="btnViewDetails1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="btnUpdateDetails" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="btnDeleteDetails" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnSearchId" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnSearchName" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnSearchPos" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="84" max="32767" attributes="0"/>
+                  <EmptySpace pref="56" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="btnBrowse" min="-2" max="-2" attributes="0"/>
@@ -149,11 +158,13 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="tfName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnSearchName" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblId" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="tfId" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnSearchId" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -196,6 +207,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblPosTitle" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="tfPosTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSearchPos" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -481,6 +493,30 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnSearchId">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Search by ID"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchIdActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnSearchName">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Search by Name"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchNameActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnSearchPos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Search by Position"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchPosActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
