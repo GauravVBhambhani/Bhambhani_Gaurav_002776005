@@ -32,4 +32,10 @@ public class EmployeeDirectory {
         return newEmployee;
     }
 
+    public void deleteEmployee(Employee selectedEmp) {
+        
+        database.remove(selectedEmp);
+
+    }
+
 }

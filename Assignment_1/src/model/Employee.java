@@ -11,8 +11,8 @@ package model;
 public class Employee {
     
     private String empName;
-    private Integer empId;
-    private Integer empAge;
+    private int empId;
+    private int empAge;
     private String empGender;
     private String empJoinDate;
     private String empLevel;
@@ -109,4 +109,10 @@ public class Employee {
     public void setEmpImage(String empImage) {
         this.empImage = empImage;
     }
+    
+    @Override
+    public String toString(){
+        return empJoinDate;
+    }
+    
 }

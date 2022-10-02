@@ -4,6 +4,8 @@
  */
 package ui;
 
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
 import javax.swing.JOptionPane;
 import model.Employee;
 import model.EmployeeDirectory;
@@ -35,6 +37,7 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        genderGrp = new javax.swing.ButtonGroup();
         workSpace = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
         lblId = new javax.swing.JLabel();
@@ -114,6 +117,7 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
             }
         });
 
+        genderGrp.add(rbMale);
         rbMale.setText("Male");
         rbMale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,8 +125,10 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
             }
         });
 
+        genderGrp.add(rbFemale);
         rbFemale.setText("Female");
 
+        genderGrp.add(rbOther);
         rbOther.setText("Other");
 
         btnUpload.setText("Upload");
@@ -147,7 +153,7 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
             .addGroup(workSpaceLayout.createSequentialGroup()
                 .addGap(140, 140, 140)
                 .addGroup(workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, workSpaceLayout.createSequentialGroup()
+                    .addGroup(workSpaceLayout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addGroup(workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblEmail)
@@ -160,8 +166,7 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
                                     .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(workSpaceLayout.createSequentialGroup()
                                 .addGap(74, 74, 74)
-                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(workSpaceLayout.createSequentialGroup()
                         .addGroup(workSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblLevel)
@@ -187,8 +192,8 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
                                 .addComponent(rbFemale)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(rbOther))
-                            .addComponent(tfName, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(tfName, javax.swing.GroupLayout.Alignment.LEADING))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(workSpaceLayout.createSequentialGroup()
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -289,13 +294,26 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfIdActionPerformed
 
+    public String getSelectedGender() {
+        Enumeration<AbstractButton> radioButtons = genderGrp.getElements();
+        while (radioButtons.hasMoreElements()) {
+            AbstractButton currentRadioButton = radioButtons.nextElement();
+            if (currentRadioButton.isSelected()) {
+                return currentRadioButton.getText();
+            }
+        }
+        return null;
+    }
+    
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
 
         String name = tfName.getText();
         int id = Integer.parseInt(tfId.getText());
         int age = Integer.parseInt(tfAge.getText());
-//        String gender
+        String gender = getSelectedGender();
+
+
 //        String startDate
         String level = tfLevel.getText();
         String teamInfo = tfTeamInfo.getText();
@@ -310,7 +328,7 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
         emp.setEmpName(name);
         emp.setEmpId(id);
         emp.setEmpAge(age);
-//        emp.setEmpGender(gender);
+        emp.setEmpGender(gender);
 //        emp.setEmpJoinDate();
         emp.setEmpLevel(level);
         emp.setEmpTeamInfo(teamInfo);
@@ -324,7 +342,7 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
         tfName.setText("");
         tfId.setText("");
         tfAge.setText("");
-//        String gender
+        genderGrp.clearSelection();
 //        String startDate
         tfLevel.setText("");
         tfTeamInfo.setText("");
@@ -339,6 +357,7 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpload;
+    private javax.swing.ButtonGroup genderGrp;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblGender;
