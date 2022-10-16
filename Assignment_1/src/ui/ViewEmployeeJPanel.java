@@ -91,8 +91,6 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Employee Details");
 
-        workSpace.setBackground(new java.awt.Color(255, 204, 204));
-
         lblName.setText("Name");
 
         lblId.setText("ID");
@@ -490,8 +488,7 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
 
     private void btnDeleteDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteDetailsActionPerformed
         // TODO add your handling code here:
-        
-        
+
         int selectedRowIndex = tblEmployee.getSelectedRow();
         
         if (selectedRowIndex < 0) {
@@ -528,7 +525,6 @@ public class ViewEmployeeJPanel extends javax.swing.JPanel {
         
         String gender = selectedEmp.getEmpGender();
 
-        
         if (gender.equalsIgnoreCase("male")){
             rbMale.setSelected(true);
         }
