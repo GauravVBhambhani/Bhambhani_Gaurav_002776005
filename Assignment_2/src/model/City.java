@@ -8,6 +8,10 @@ package model;
  *
  * @author gorubhambhani
  */
+
 public class City {
+    String city;
+    Community community;
+    HospitalDirectory hospitaldirectory;
     
 }

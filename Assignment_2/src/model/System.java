@@ -4,10 +4,19 @@
  */
 package model;
 
+import java.util.HashMap;
+import model.PatientDirectory;
+
 /**
  *
  * @author gorubhambhani
  */
-public class System {
+public class System{
+    PatientDirectory patientdirectory;
+    PersonDirectory persondirectory;
+    DoctorDirectory doctordirectory;
+    City city;
+//    HospitalDirectory hospitaldirectory;
+//    EncounterHistory encounterhistory;
     
 }
