@@ -9,5 +9,5 @@ package model;
  * @author gorubhambhani
  */
 public class DoctorDirectory {
-    
+    //encounter and patient directory 
 }

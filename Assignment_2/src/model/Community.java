@@ -10,4 +10,9 @@ package model;
  */
 public class Community {
     
+    private String community;
+    HospitalDirectory hospital;
+    
+    //community will have house
+    
 }

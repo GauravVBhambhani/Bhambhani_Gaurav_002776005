@@ -4,6 +4,12 @@
  */
 package ui;
 
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
+import javax.swing.JOptionPane;
+import model.Patient;
+import model.PatientDirectory;
+
 /**
  *
  * @author gorubhambhani
@@ -13,8 +19,15 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreatePatientJPanel
      */
-    public CreatePatientJPanel() {
+    
+    PatientDirectory patientDatabase;
+    Patient patient;
+    
+    public CreatePatientJPanel(PatientDirectory patientDatabase, Patient patient) {
         initComponents();
+        
+        this.patientDatabase = patientDatabase;
+        this.patient = patient;
     }
 
     /**
@@ -26,19 +39,281 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        genderGrp = new javax.swing.ButtonGroup();
+        jLabel1 = new javax.swing.JLabel();
+        lblPatientName = new javax.swing.JLabel();
+        lblPatientAge = new javax.swing.JLabel();
+        lblPatientGender = new javax.swing.JLabel();
+        lblPatientMobile = new javax.swing.JLabel();
+        lblPatientPassword = new javax.swing.JLabel();
+        lblPatientUsername = new javax.swing.JLabel();
+        tfPatientName = new javax.swing.JTextField();
+        tfPatientAge = new javax.swing.JTextField();
+        tfPatientMobile = new javax.swing.JTextField();
+        tfPatientUsername = new javax.swing.JTextField();
+        tfPatientPassword = new javax.swing.JTextField();
+        rbMale = new javax.swing.JRadioButton();
+        rbFemale = new javax.swing.JRadioButton();
+        rbOthers = new javax.swing.JRadioButton();
+        btnSavePatient = new javax.swing.JButton();
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Create Patient");
+
+        lblPatientName.setText("Name");
+
+        lblPatientAge.setText("Age");
+
+        lblPatientGender.setText("Gender");
+
+        lblPatientMobile.setText("Mobile");
+
+        lblPatientPassword.setText("Create Password");
+
+        lblPatientUsername.setText("Create Username");
+
+        tfPatientUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfPatientUsernameActionPerformed(evt);
+            }
+        });
+
+        tfPatientPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfPatientPasswordActionPerformed(evt);
+            }
+        });
+
+        genderGrp.add(rbMale);
+        rbMale.setText("Male");
+        rbMale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbMaleActionPerformed(evt);
+            }
+        });
+
+        genderGrp.add(rbFemale);
+        rbFemale.setText("Female");
+
+        genderGrp.add(rbOthers);
+        rbOthers.setText("Others");
+
+        btnSavePatient.setText("Save");
+        btnSavePatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSavePatientActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblPatientMobile)
+                                .addGap(18, 18, 18)
+                                .addComponent(tfPatientMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPatientName)
+                                    .addComponent(lblPatientAge))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfPatientAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblPatientGender)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rbMale)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rbFemale)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rbOthers))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblPatientUsername)
+                                .addGap(18, 18, 18)
+                                .addComponent(tfPatientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblPatientPassword)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnSavePatient)
+                                    .addComponent(tfPatientPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(121, 121, 121)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPatientName)
+                    .addComponent(tfPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPatientAge)
+                    .addComponent(tfPatientAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPatientGender)
+                    .addComponent(rbMale)
+                    .addComponent(rbFemale)
+                    .addComponent(rbOthers))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPatientMobile)
+                    .addComponent(tfPatientMobile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPatientUsername)
+                    .addComponent(tfPatientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPatientPassword)
+                    .addComponent(tfPatientPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnSavePatient)
+                .addContainerGap(257, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void rbMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMaleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbMaleActionPerformed
+
+    private void tfPatientUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPatientUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfPatientUsernameActionPerformed
+
+    private void tfPatientPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPatientPasswordActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_tfPatientPasswordActionPerformed
+
+    public String getSelectedGender(){
+        Enumeration<AbstractButton> radioButtons = genderGrp.getElements();
+        while(radioButtons.hasMoreElements()){
+            AbstractButton currentRadioButton = radioButtons.nextElement();
+            if (currentRadioButton.isSelected()) {
+                return currentRadioButton.getText();
+            }
+        }
+        return null;
+    }
+    
+    private void btnSavePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavePatientActionPerformed
+        // TODO add your handling code here:
+        
+        Patient patient = new Patient();
+        String chkLen;
+        
+        chkLen = tfPatientName.getText().trim();
+        if ((chkLen.isEmpty() && chkLen.length()>=2 && chkLen.chars().allMatch(Character::isLetter)))
+            patient.setPatientName(tfPatientName.getText());
+        else{
+            JOptionPane.showMessageDialog(this, "Invalid Name!");
+            return;
+        }
+        
+        chkLen = tfPatientAge.getText().trim();
+        if (!chkLen.isEmpty() && (chkLen.chars().allMatch(Character::isDigit)) && chkLen.length()>=2)
+            patient.setPatientAge(Integer.parseInt(tfPatientAge.getText()));
+        else {
+            JOptionPane.showMessageDialog(this, "Invalid Age!");
+            return;
+        }
+        
+        chkLen = tfPatientMobile.getText().trim();
+        if(!chkLen.isEmpty() && chkLen.charAt(0)!='0' && chkLen.length()==10 && chkLen.chars().allMatch(Character::isDigit))
+            patient.setPatientMobile(tfPatientMobile.getText());
+        else {
+            JOptionPane.showMessageDialog(this, "Invalid Mobile Number");
+            return;
+        }
+        
+        chkLen = tfPatientUsername.getText().trim();
+        if ((chkLen.isEmpty() && chkLen.length()>=2 && chkLen.chars().allMatch(Character::isLetter)))
+            patient.setPatientUsername(tfPatientUsername.getText());
+        else{
+            JOptionPane.showMessageDialog(this, "Invalid Name!");
+            return;
+        }
+        
+        chkLen = tfPatientPassword.getText().trim();
+        if ((chkLen.isEmpty() && chkLen.length()>=2 && chkLen.chars().allMatch(Character::isLetter)))
+            patient.setPatientPassword(tfPatientPassword.getText());
+        else{
+            JOptionPane.showMessageDialog(this, "Invalid Password!");
+            return;
+        }
+        
+        if (checkSpace()){
+            String patientName = tfPatientName.getText();
+            int patientAge = Integer.parseInt(tfPatientAge.getText());
+            String patientGender = getSelectedGender();
+            String patientMobile = tfPatientMobile.getText();
+            String patientUsername = tfPatientUsername.getText();
+            String patientPassword = tfPatientPassword.getText();
+            
+            Patient pat = patientDatabase.addNewPatient();
+            
+            pat.setPatientName(patientName);
+            pat.setPatientAge(patientAge);
+            pat.setPatientGender(patientGender);
+            pat.setPatientMobile(patientMobile);
+            pat.setPatientUsername(patientUsername);
+            pat.setPatientPassword(patientPassword);
+            
+            JOptionPane.showMessageDialog(this, "New Patient Created.");
+            
+            tfPatientName.setText("");
+            tfPatientAge.setText("");
+            tfPatientMobile.setText("");
+            tfPatientUsername.setText("");
+            tfPatientPassword.setText("");   
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Please fill all the fields correctly.");
+        }
+        
+    }//GEN-LAST:event_btnSavePatientActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSavePatient;
+    private javax.swing.ButtonGroup genderGrp;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblPatientAge;
+    private javax.swing.JLabel lblPatientGender;
+    private javax.swing.JLabel lblPatientMobile;
+    private javax.swing.JLabel lblPatientName;
+    private javax.swing.JLabel lblPatientPassword;
+    private javax.swing.JLabel lblPatientUsername;
+    private javax.swing.JRadioButton rbFemale;
+    private javax.swing.JRadioButton rbMale;
+    private javax.swing.JRadioButton rbOthers;
+    private javax.swing.JTextField tfPatientAge;
+    private javax.swing.JTextField tfPatientMobile;
+    private javax.swing.JTextField tfPatientName;
+    private javax.swing.JTextField tfPatientPassword;
+    private javax.swing.JTextField tfPatientUsername;
     // End of variables declaration//GEN-END:variables
+
+
+    private Boolean checkSpace(){
+        return !(tfPatientName.getText().length()==0||tfPatientAge.getText().length()==0||tfPatientMobile.getText().length()==0);
+    }
+
 }

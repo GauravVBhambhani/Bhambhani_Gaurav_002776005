@@ -4,14 +4,38 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author gorubhambhani
  */
 
 public class City {
-    String city;
-    Community community;
-    HospitalDirectory hospitaldirectory;
+    private String city;
+    private ArrayList<Community> community;
+    
+    public City(String city){
+        this.city = city;
+//        this.community = community;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public ArrayList<Community> getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(ArrayList<Community> community) {
+        this.community = community;
+    }
+    
+    
     
 }

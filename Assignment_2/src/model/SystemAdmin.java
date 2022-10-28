@@ -11,7 +11,7 @@ import model.PatientDirectory;
  *
  * @author gorubhambhani
  */
-public class System{
+public class SystemAdmin{
     PatientDirectory patientdirectory;
     PersonDirectory persondirectory;
     DoctorDirectory doctordirectory;
