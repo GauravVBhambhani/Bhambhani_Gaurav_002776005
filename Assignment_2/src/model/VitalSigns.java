@@ -15,7 +15,6 @@ public class VitalSigns {
     private double temperature;
     private double bloodPressure;
     private int pulse;
-//    private String date;
     Encounter encounterTimestamp = new Encounter();
     
 

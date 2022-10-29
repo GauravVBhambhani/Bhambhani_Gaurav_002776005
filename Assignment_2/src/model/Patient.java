@@ -9,44 +9,17 @@ package model;
  * @author gorubhambhani
  */
 public class Patient {
-    private String patientName;
-    private int patientAge;
-    private String patientGender;
-    private String patientMobile;
+//    private String patientName;
+//    private int patientAge;
+//    private String patientGender;
+//    private String patientMobile;
+    private Person patient;
     private String patientUsername;
     private String patientPassword;
-
-    public String getPatientName() {
-        return patientName;
-    }
-
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
-    }
-
-    public int getPatientAge() {
-        return patientAge;
-    }
-
-    public void setPatientAge(int patientAge) {
-        this.patientAge = patientAge;
-    }
-
-    public String getPatientGender() {
-        return patientGender;
-    }
-
-    public void setPatientGender(String patientGender) {
-        this.patientGender = patientGender;
-    }
-
-    public String getPatientMobile() {
-        return patientMobile;
-    }
-
-    public void setPatientMobile(String patientMobile) {
-        this.patientMobile = patientMobile;
-    }
+    private VitalSigns vitalSigns;
+    private EncounterHistory encounterHistory; //?
+    
+    
 
     public String getPatientUsername() {
         return patientUsername;

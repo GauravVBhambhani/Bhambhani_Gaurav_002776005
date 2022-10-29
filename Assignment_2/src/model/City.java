@@ -14,11 +14,6 @@ import java.util.ArrayList;
 public class City {
     private String city;
     private ArrayList<Community> community;
-    
-    public City(String city){
-        this.city = city;
-//        this.community = community;
-    }
 
     public String getCity() {
         return city;

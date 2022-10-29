@@ -30,31 +30,6 @@
                       <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblPatientMobile" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="tfPatientMobile" min="-2" pref="150" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblPatientName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblPatientAge" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="tfPatientAge" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tfPatientName" min="-2" pref="133" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblPatientGender" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="rbMale" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="rbFemale" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="rbOthers" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <Component id="lblPatientUsername" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="tfPatientUsername" min="-2" pref="125" max="-2" attributes="0"/>
@@ -68,7 +43,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -80,29 +55,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="70" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblPatientName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfPatientName" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblPatientAge" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfPatientAge" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblPatientGender" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="rbMale" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="rbFemale" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="rbOthers" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblPatientMobile" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfPatientMobile" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="246" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblPatientUsername" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfPatientUsername" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -132,26 +85,6 @@
         <Property name="text" type="java.lang.String" value="Create Patient"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblPatientName">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Name"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblPatientAge">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Age"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblPatientGender">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Gender"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblPatientMobile">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Mobile"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblPatientPassword">
       <Properties>
         <Property name="text" type="java.lang.String" value="Create Password"/>
@@ -162,12 +95,6 @@
         <Property name="text" type="java.lang.String" value="Create Username"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfPatientName">
-    </Component>
-    <Component class="javax.swing.JTextField" name="tfPatientAge">
-    </Component>
-    <Component class="javax.swing.JTextField" name="tfPatientMobile">
-    </Component>
     <Component class="javax.swing.JTextField" name="tfPatientUsername">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPatientUsernameActionPerformed"/>
@@ -177,33 +104,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPatientPasswordActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="rbMale">
-      <Properties>
-        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-          <ComponentRef name="genderGrp"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Male"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbMaleActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="rbFemale">
-      <Properties>
-        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-          <ComponentRef name="genderGrp"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Female"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="rbOthers">
-      <Properties>
-        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-          <ComponentRef name="genderGrp"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Others"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnSavePatient">
       <Properties>

@@ -10,23 +10,58 @@ import java.util.ArrayList;
  */
 public class PersonDirectory {
     
-    ArrayList<Person> personList;
+    private ArrayList<Person> personDirectory;
     
-    public PersonDirectory(){
-        personList = new ArrayList();
+    public ArrayList<Person> getPersonHistory(){
+        return personDirectory;
     }
     
-    public Person newPerson(String id){
-        Person p = new Person(id);
-        personList.add(p);
-        return p;
+    public void setPersonHistory(ArrayList<Person> personHistory){
+        this.personDirectory = personHistory;
     }
     
-    public Person findPerson(String id){
-        for (Person p: personList){
-            if (p.isMatch(id)) return p;
+    public Person createPerson(){
+        Person person = new Person();
+        personDirectory.add(person);
+        return person;
+    }
+    
+    public void deletePerson(Person person){
+        personDirectory.remove(person);
+    }
+    
+    public ArrayList<Person> searchPerson(String key){
+        ArrayList<Person> searchPersonDirectory = new ArrayList();
+        for (Person person: personDirectory){
+            if (person.getName().toLowerCase().startsWith(key.toLowerCase())){
+                searchPersonDirectory.add(person);
+            }
         }
-        return null; // person not found.
+        return searchPersonDirectory;
+    }
+    
+    public ArrayList<Person> searchPatient(String key){
+        ArrayList<Person> searchPatientDirectory = new ArrayList();
+        for (Person person: personDirectory){
+            if (person.getName().toLowerCase().startsWith(key.toLowerCase())){
+                if (person.getPatient()!=null){
+                    searchPatientDirectory.add(person);
+                }
+            }
+        }
+        return searchPatientDirectory;
+    }
+    
+    public ArrayList<Person> searchDoctor(String key){
+        ArrayList<Person> searchDoctorDirectory = new ArrayList();
+        for (Person person: personDirectory){
+            if (person.getName().toLowerCase().startsWith(key.toLowerCase())){
+                if (person.getDoctor()!=null){
+                    searchDoctorDirectory.add(person);
+                }
+            }
+        }
+        return searchDoctorDirectory;
     }
     
 }
