@@ -12,16 +12,24 @@ import java.util.ArrayList;
  */
 public class Community {
     
-    private String community;
+    private String communityName;
 //    private HospitalDirectory hospital = new HospitalDirectory();
     private ArrayList<Hospital> hospitalDatabase;
 
-    public String getCommunity() {
-        return community;
+    public Community(){
+        communityName = "";
+    }
+    
+    public Community(String community){
+        communityName = community;
+    }
+    
+    public String getCommunityName() {
+        return communityName;
     }
 
-    public void setCommunity(String community) {
-        this.community = community;
+    public void setCommunityName(String communityName) {
+        this.communityName = communityName;
     }
 
     public ArrayList<Hospital> getHospitalDatabase() {

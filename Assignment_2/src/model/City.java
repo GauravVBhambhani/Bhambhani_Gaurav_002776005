@@ -12,15 +12,23 @@ import java.util.ArrayList;
  */
 
 public class City {
-    private String city;
+    private String cityName;
     private ArrayList<Community> community;
 
-    public String getCity() {
-        return city;
+    public City(String cityName){
+        this.cityName = cityName;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public City() {
+        cityName = "";
+    }
+    
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
     public ArrayList<Community> getCommunity() {

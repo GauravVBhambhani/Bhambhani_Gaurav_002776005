@@ -63,5 +63,9 @@ public class PersonDirectory {
         }
         return searchDoctorDirectory;
     }
+
+    public void updatePerson(Person selectedPerson, int selectedRowIndex) {
+        personDirectory.set(selectedRowIndex, selectedPerson);
+    }
     
 }
