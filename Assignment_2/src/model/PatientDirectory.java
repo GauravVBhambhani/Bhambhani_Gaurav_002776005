@@ -40,15 +40,15 @@ public class PatientDirectory {
         patientDatabase.set(index, selectedPatient);
     }
     
-    public ArrayList<Patient> searchPatientName(String key){
-        ArrayList<Patient> searchPatientName = new ArrayList();
+    public ArrayList<Patient> searchPatientId(String key){
+        ArrayList<Patient> searchPatientId = new ArrayList();
         for (Patient patient: patientDatabase){
-            if (patient.getPatientName().equals(key)){
-                if (patient.getPatientName()!= null){
-                    searchPatientName.add(patient);
+            if (patient.getPatientId().equals(key)){
+                if (patient.getPatientId()!= null){
+                    searchPatientId.add(patient);
                 }
             }
         }
-        return searchPatientName;
+        return searchPatientId;
     }
 }

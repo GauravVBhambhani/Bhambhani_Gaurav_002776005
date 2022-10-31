@@ -5,38 +5,49 @@
 package ui.Person;
 
 import java.awt.CardLayout;
-import java.util.Enumeration;
-import javax.swing.AbstractButton;
 import javax.swing.InputVerifier;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import model.City;
-import model.Community;
-import model.House;
 import model.MyNumericVerifier;
 import model.MyStringVerifier;
 import model.Person;
-import model.PersonDirectory;
 
 /**
  *
  * @author gorubhambhani
  */
-public class CreatePersonJPanel extends javax.swing.JPanel {
+public class ViewEditPersonJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form CreatePersonJPanel
+     * Creates new form ViewEditPersonJPanel
      */
     
-    private PersonDirectory personDirectory;
+    private Person person;
     private JPanel userProcessContainer;
+    private Boolean isEdit = Boolean.FALSE;
     
-    public CreatePersonJPanel(JPanel userProcessContainer, PersonDirectory personDirectory) {
+    public ViewEditPersonJPanel(JPanel userProcessContainer, Person person, Boolean isEdit) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
-        this.personDirectory = personDirectory;
+        this.person = person;
+        this.isEdit = isEdit;
 //        addVerifiers();
+        populatePatientDetails();
+        modifyTfs(this.isEdit);
+    }
+    
+    private void populatePatientDetails(){
+        tfName.setText(person.getName());
+        tfAge.setText(String.valueOf(person.getAge()));
+        
+        tfMobile.setText(person.getMobile());
+//        tfHouse.setText(person.getHouse());
+//        tfCommunity.setText(person.getCommunity());
+//        tfCity.setText(person.getCity());
+        
+        
+        
     }
     
 //    private void addVerifiers(){
@@ -55,32 +66,32 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        genderGrp = new javax.swing.ButtonGroup();
         lblTitle = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
+        tfName = new javax.swing.JTextField();
         lblAge = new javax.swing.JLabel();
+        tfAge = new javax.swing.JTextField();
         lblGender = new javax.swing.JLabel();
+        rbMale1 = new javax.swing.JRadioButton();
+        rbFemale = new javax.swing.JRadioButton();
+        rbOthers = new javax.swing.JRadioButton();
         lblMobile = new javax.swing.JLabel();
+        tfMobile = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
         lblHouse = new javax.swing.JLabel();
-        lblCity = new javax.swing.JLabel();
-        lblCommunity = new javax.swing.JLabel();
-        btnCreatePerson = new javax.swing.JButton();
-        tfName = new javax.swing.JTextField();
-        tfAge = new javax.swing.JTextField();
-        tfMobile = new javax.swing.JTextField();
         tfHouse = new javax.swing.JTextField();
+        lblCommunity = new javax.swing.JLabel();
         tfCommunity = new javax.swing.JTextField();
+        lblCity = new javax.swing.JLabel();
         tfCity = new javax.swing.JTextField();
-        rbFemale = new javax.swing.JRadioButton();
-        rbMale1 = new javax.swing.JRadioButton();
-        rbOthers = new javax.swing.JRadioButton();
         btnBack = new javax.swing.JButton();
+        btnUpdatePerson = new javax.swing.JButton();
+        btnSavePerson = new javax.swing.JButton();
 
         lblTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 0, 51));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("Create Person");
+        lblTitle.setText("View/Update Person");
 
         lblName.setText("Name");
 
@@ -88,48 +99,8 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
 
         lblGender.setText("Gender");
 
-        lblMobile.setText("Mobile");
+        rbMale1.setText("Male");
 
-        lblAddress.setText("Address");
-
-        lblHouse.setText("House");
-
-        lblCity.setText("City");
-
-        lblCommunity.setText("Community");
-
-        btnCreatePerson.setText("Create");
-        btnCreatePerson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreatePersonActionPerformed(evt);
-            }
-        });
-
-        tfMobile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfMobileActionPerformed(evt);
-            }
-        });
-
-        tfHouse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfHouseActionPerformed(evt);
-            }
-        });
-
-        tfCommunity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfCommunityActionPerformed(evt);
-            }
-        });
-
-        tfCity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfCityActionPerformed(evt);
-            }
-        });
-
-        genderGrp.add(rbFemale);
         rbFemale.setText("Female");
         rbFemale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,16 +108,60 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
             }
         });
 
-        genderGrp.add(rbMale1);
-        rbMale1.setText("Male");
-
-        genderGrp.add(rbOthers);
         rbOthers.setText("Others");
+
+        lblMobile.setText("Mobile");
+
+        tfMobile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfMobileActionPerformed(evt);
+            }
+        });
+
+        lblAddress.setText("Address");
+
+        lblHouse.setText("House");
+
+        tfHouse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfHouseActionPerformed(evt);
+            }
+        });
+
+        lblCommunity.setText("Community");
+
+        tfCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfCommunityActionPerformed(evt);
+            }
+        });
+
+        lblCity.setText("City");
+
+        tfCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfCityActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
+            }
+        });
+
+        btnUpdatePerson.setText("Update");
+        btnUpdatePerson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdatePersonActionPerformed(evt);
+            }
+        });
+
+        btnSavePerson.setText("Save");
+        btnSavePerson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSavePersonActionPerformed(evt);
             }
         });
 
@@ -181,22 +196,25 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
                                                 .addComponent(lblCommunity)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(tfCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(lblHouse)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(tfHouse, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(lblCity)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(tfCity)
-                                                        .addGroup(layout.createSequentialGroup()
-                                                            .addComponent(btnBack)
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                            .addComponent(btnCreatePerson)
-                                                            .addGap(0, 0, Short.MAX_VALUE))))))))
-                                .addGap(142, 259, Short.MAX_VALUE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(lblHouse)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(tfHouse, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(lblCity)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(tfCity)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(btnBack)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(btnUpdatePerson)
+                                                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(btnSavePerson)))))
+                                .addGap(201, 201, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblAddress)
@@ -250,76 +268,17 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
                     .addComponent(tfCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreatePerson)
-                    .addComponent(btnBack))
+                    .addComponent(btnUpdatePerson)
+                    .addComponent(btnBack)
+                    .addComponent(btnSavePerson))
                 .addGap(184, 184, 184))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCreatePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatePersonActionPerformed
+    private void rbFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbFemaleActionPerformed
         // TODO add your handling code here:
-        
-        if (checkBlankInput() == Boolean.TRUE){
-            Person person = personDirectory.createPerson();
-            
-            House house = new House();
-            house.setHouseName(tfHouse.getText());
-            
-            Community community = new Community();
-            community.setCommunityName(tfCommunity.getText());
-            
-            City city = new City();
-            city.setCityName(tfCity.getText());
-            
-            
-            person.setName(tfName.getText());
-            person.setAge(Integer.parseInt(tfAge.getText()));
-            person.setGender(getGender());
-            person.setMobile(tfMobile.getText());
-            person.setHouse(house);
-            person.setCommunity(community);
-            person.setCity(city);
-            
-            JOptionPane.showMessageDialog(this, "Person Added!", "Update", 
-                    JOptionPane.INFORMATION_MESSAGE);
-            clearFields();
-            
-        }
-        else {
-            JOptionPane.showMessageDialog(this, "Please enter all values!", "Error", 
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_btnCreatePersonActionPerformed
+    }//GEN-LAST:event_rbFemaleActionPerformed
 
-    private void clearFields(){
-        tfName.setText("");
-        tfAge.setText("");
-        tfMobile.setText("");
-        tfHouse.setText("");
-        tfCommunity.setText("");
-        tfCity.setText("");
-    }
-    
-    private Boolean checkBlankInput(){
-        return !(tfName.getText().length()==0 ||
-                tfAge.getText().length()==0 ||
-                tfMobile.getText().length()==0 ||
-                tfHouse.getText().length()==0 ||
-                tfCommunity.getText().length()==0 ||
-                tfCity.getText().length()==0);
-    }
-    
-    public String getGender(){
-        Enumeration<AbstractButton> radioButtons = genderGrp.getElements();
-        while(radioButtons.hasMoreElements()){
-            AbstractButton currentRadioButton = radioButtons.nextElement();
-            if (currentRadioButton.isSelected()){
-                return currentRadioButton.getText();
-            }
-        }
-        return null;
-    }
-    
     private void tfMobileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfMobileActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfMobileActionPerformed
@@ -336,23 +295,63 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfCityActionPerformed
 
-    private void rbFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbFemaleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbFemaleActionPerformed
-
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        
+
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnUpdatePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdatePersonActionPerformed
+        // TODO add your handling code here:
+        modifyTfs(true);
+    }//GEN-LAST:event_btnUpdatePersonActionPerformed
+
+    private void modifyTfs(Boolean isEdit){
+        if (isEdit){
+            tfName.setEnabled(true);
+            tfAge.setEnabled(true);
+            tfMobile.setEnabled(true);
+            tfHouse.setEnabled(true);
+            tfCommunity.setEnabled(true);
+            tfCity.setEnabled(true);
+        }
+        else{
+            tfName.setEnabled(false);
+            tfAge.setEnabled(false);
+            tfMobile.setEnabled(false);
+            tfHouse.setEnabled(false);
+            tfCommunity.setEnabled(false);
+            tfCity.setEnabled(false);
+        }
+    }
+    
+    private void btnSavePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavePersonActionPerformed
+        // TODO add your handling code here:
+        
+        if (checkBlankInput()) {
+            person.setAge(Integer.parseInt(tfAge.getText()));
+            person.setName(tfName.getText());
+            JOptionPane.showMessageDialog(this, "Person updated!!",
+                    "Update", JOptionPane.INFORMATION_MESSAGE);
+            modifyTfs(false);
+        } else {
+            JOptionPane.showMessageDialog(this, "Please enter correct values", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_btnSavePersonActionPerformed
+
+    private Boolean checkBlankInput() {
+        return !(tfAge.getText().length() == 0
+                || tfName.getText().length() == 0);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnCreatePerson;
-    private javax.swing.ButtonGroup genderGrp;
+    private javax.swing.JButton btnSavePerson;
+    private javax.swing.JButton btnUpdatePerson;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblCity;

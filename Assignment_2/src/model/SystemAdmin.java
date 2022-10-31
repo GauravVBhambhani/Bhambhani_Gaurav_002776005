@@ -12,11 +12,7 @@ import model.PatientDirectory;
  * @author gorubhambhani
  */
 public class SystemAdmin{
-    PatientDirectory patientdirectory;
-    PersonDirectory persondirectory;
-    DoctorDirectory doctordirectory;
-    City city;
-//    HospitalDirectory hospitaldirectory;
-//    EncounterHistory encounterhistory;
+    private String systemAdminId = "sysadmin";
+    private String systemAdminPassword = "sysadmin";
     
 }

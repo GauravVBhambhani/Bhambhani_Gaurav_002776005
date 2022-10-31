@@ -4,7 +4,9 @@
  */
 package model;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 
 /**
  *
@@ -12,43 +14,57 @@ import java.time.LocalDate;
  */
 public class VitalSigns {
     
-    private double temperature;
-    private double bloodPressure;
-    private int pulse;
-    Encounter encounterTimestamp = new Encounter();
+    private int respiratoryRate;
+    private int heartRate;
+    private int bloodPressure;
+    private int weight;
+    private Date timestamp;
     
-
-    public double getTemperature() {
-        return temperature;
+    public int getRespiratoryRate() {
+        return respiratoryRate;
     }
-
-    public void setTemperature(double temperature) {
-        this.temperature = temperature;
+    
+    public void setRespiratoryRate(int respiratoryRate) {
+        this.respiratoryRate = respiratoryRate;
     }
-
-    public double getBloodPressure() {
+    
+    public int getHeartRate() {
+        return heartRate;
+    }
+    
+    public void setHeartRate(int heartRate) {
+        this.heartRate = heartRate;
+    }
+    
+    public int getBloodPressure() {
         return bloodPressure;
     }
-
-    public void setBloodpressure(double bloodPressure) {
+    
+    public void setBloodPressure(int bloodPressure) {
         this.bloodPressure = bloodPressure;
     }
-
-    public int getPulse() {
-        return pulse;
+    
+    public int getWeight() {
+        return weight;
     }
-
-    public void setPulse(int pulse) {
-        this.pulse = pulse;
+    
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
-
-    public LocalDate getDate() {
-        return encounterTimestamp.getTimestamp();
+    
+    public Date getTimestamp() {
+        return timestamp;
     }
-
-//    public void setDate(String date) {
-//        this.date = date;
-//    }
+    
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
+    
+    @Override
+    public String toString() {
+        SimpleDateFormat ft = new SimpleDateFormat("MM/dd/yyyy 'at' hh:mm:ss a");
+        return ft.format(timestamp);
+    }
     
     
     

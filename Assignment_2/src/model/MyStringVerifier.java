@@ -8,12 +8,14 @@ import java.awt.Color;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.InputVerifier;
+
 
 /**
  *
  * @author gorubhambhani
  */
-public class MyStringVerifier {
+public class MyStringVerifier extends InputVerifier {
     public boolean verify(JComponent input) {
         String text = ((JTextField) input).getText();
         String pattern = "^[a-zA-Z0-9]*$";

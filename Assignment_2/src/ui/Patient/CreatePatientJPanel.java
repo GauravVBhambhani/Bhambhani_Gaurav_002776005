@@ -43,9 +43,13 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         lblPatientPassword = new javax.swing.JLabel();
         lblPatientUsername = new javax.swing.JLabel();
-        tfPatientUsername = new javax.swing.JTextField();
+        tfPatientId = new javax.swing.JTextField();
         tfPatientPassword = new javax.swing.JTextField();
-        btnSavePatient = new javax.swing.JButton();
+        btnCreatePatient = new javax.swing.JButton();
+        lblPatientUsername1 = new javax.swing.JLabel();
+        lblPatientUsername2 = new javax.swing.JLabel();
+        jcbDoctor = new javax.swing.JComboBox<>();
+        jcbHospital = new javax.swing.JComboBox<>();
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
@@ -54,11 +58,11 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
 
         lblPatientPassword.setText("Create Password");
 
-        lblPatientUsername.setText("Create Username");
+        lblPatientUsername.setText("Patient ID");
 
-        tfPatientUsername.addActionListener(new java.awt.event.ActionListener() {
+        tfPatientId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfPatientUsernameActionPerformed(evt);
+                tfPatientIdActionPerformed(evt);
             }
         });
 
@@ -68,12 +72,25 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnSavePatient.setText("Save");
-        btnSavePatient.addActionListener(new java.awt.event.ActionListener() {
+        btnCreatePatient.setText("Create");
+        btnCreatePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSavePatientActionPerformed(evt);
+                btnCreatePatientActionPerformed(evt);
             }
         });
+
+        lblPatientUsername1.setText("Primary Doctor");
+
+        lblPatientUsername2.setText("Preferred Hospital");
+
+        jcbDoctor.setSelectedItem(null);
+        jcbDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbDoctorActionPerformed(evt);
+            }
+        });
+
+        jcbHospital.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boston Hospital", "Roxbury Hospital", "Newbury Hospital" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -88,16 +105,24 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
                         .addGap(91, 91, 91)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblPatientUsername1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jcbDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(118, 118, 118)
+                                .addComponent(btnCreatePatient))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblPatientUsername)
                                 .addGap(18, 18, 18)
-                                .addComponent(tfPatientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tfPatientId, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblPatientPassword)
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnSavePatient)
-                                    .addComponent(tfPatientPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(122, 122, 122)))
+                                .addComponent(tfPatientPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblPatientUsername2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jcbHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -105,23 +130,31 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(246, 246, 246)
+                .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPatientUsername)
-                    .addComponent(tfPatientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                    .addComponent(tfPatientId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPatientUsername2)
+                    .addComponent(jcbHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPatientUsername1)
+                    .addComponent(jcbDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPatientPassword)
                     .addComponent(tfPatientPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnSavePatient)
-                .addContainerGap(257, Short.MAX_VALUE))
+                .addComponent(btnCreatePatient)
+                .addContainerGap(379, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfPatientUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPatientUsernameActionPerformed
+    private void tfPatientIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPatientIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfPatientUsernameActionPerformed
+    }//GEN-LAST:event_tfPatientIdActionPerformed
 
     private void tfPatientPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPatientPasswordActionPerformed
         // TODO add your handling code here:
@@ -139,7 +172,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         return null;
     }
     
-    private void btnSavePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavePatientActionPerformed
+    private void btnCreatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatePatientActionPerformed
         // TODO add your handling code here:
         
         Patient patient = new Patient();
@@ -169,9 +202,9 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
 //            return;
 //        }
         
-        chkLen = tfPatientUsername.getText().trim();
+        chkLen = tfPatientId.getText().trim();
         if ((chkLen.isEmpty() && chkLen.length()>=2 && chkLen.chars().allMatch(Character::isLetter)))
-            patient.setPatientUsername(tfPatientUsername.getText());
+            patient.setPatientId(tfPatientId.getText());
         else{
             JOptionPane.showMessageDialog(this, "Invalid Name!");
             return;
@@ -190,7 +223,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
 //            int patientAge = Integer.parseInt(tfPatientAge.getText());
 //            String patientGender = getSelectedGender();
 //            String patientMobile = tfPatientMobile.getText();
-            String patientUsername = tfPatientUsername.getText();
+            String patientUsername = tfPatientId.getText();
             String patientPassword = tfPatientPassword.getText();
             
             Patient pat = patientDatabase.addNewPatient();
@@ -199,7 +232,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
 //            pat.setPatientAge(patientAge);
 //            pat.setPatientGender(patientGender);
 //            pat.setPatientMobile(patientMobile);
-            pat.setPatientUsername(patientUsername);
+            pat.setPatientId(patientUsername);
             pat.setPatientPassword(patientPassword);
             
             JOptionPane.showMessageDialog(this, "New Patient Created.");
@@ -207,29 +240,45 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
 //            tfPatientName.setText("");
 //            tfPatientAge.setText("");
 //            tfPatientMobile.setText("");
-            tfPatientUsername.setText("");
+            tfPatientId.setText("");
             tfPatientPassword.setText("");   
         }
         else {
             JOptionPane.showMessageDialog(this, "Please fill all the fields correctly.");
         }
         
-    }//GEN-LAST:event_btnSavePatientActionPerformed
+    }//GEN-LAST:event_btnCreatePatientActionPerformed
+
+    private void jcbDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbDoctorActionPerformed
+        // TODO add your handling code here:
+        if (jcbHospital.getSelectedItem().equals("Boston Hospital")){
+            
+            jcbDoctor.removeAllItems();
+            jcbDoctor.setSelectedItem(null);
+            jcbDoctor.addItem("Dr Rahul");
+        }
+        
+        
+    }//GEN-LAST:event_jcbDoctorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSavePatient;
+    private javax.swing.JButton btnCreatePatient;
     private javax.swing.ButtonGroup genderGrp;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> jcbDoctor;
+    private javax.swing.JComboBox<String> jcbHospital;
     private javax.swing.JLabel lblPatientPassword;
     private javax.swing.JLabel lblPatientUsername;
+    private javax.swing.JLabel lblPatientUsername1;
+    private javax.swing.JLabel lblPatientUsername2;
+    private javax.swing.JTextField tfPatientId;
     private javax.swing.JTextField tfPatientPassword;
-    private javax.swing.JTextField tfPatientUsername;
     // End of variables declaration//GEN-END:variables
 
 
     private Boolean checkSpace(){
-        return !(tfPatientName.getText().length()==0||tfPatientAge.getText().length()==0||tfPatientMobile.getText().length()==0);
+        return !(tfPatientId.getText().length()==0||tfPatientPassword.getText().length()==0);
     }
 
 }
