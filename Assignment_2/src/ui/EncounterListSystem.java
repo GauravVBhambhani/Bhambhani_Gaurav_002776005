@@ -72,7 +72,15 @@ public class EncounterListSystem extends javax.swing.JPanel {
             new String [] {
                 "Encounter Id", "Patient id", "Patient Name", "Encounter Date", "Encounter Time", "Diagnosis"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jButton2.setText("View");

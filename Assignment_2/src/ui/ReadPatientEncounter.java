@@ -75,7 +75,15 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
             new String [] {
                 "Enc Id", "Dr Name", "Dr Username", "Patient Name", "Patient Username", "Apt Date", "Apt Time"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jButton3.setText("View");
