@@ -65,6 +65,8 @@ public class CommunityAdmin extends javax.swing.JPanel {
         jcbComm = new javax.swing.JComboBox<>();
         btnupdatehouse = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+
         jLabel1.setFont(new java.awt.Font("Kannada Sangam MN", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Community Admin Panel");

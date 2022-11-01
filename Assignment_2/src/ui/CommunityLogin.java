@@ -42,6 +42,8 @@ public class CommunityLogin extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+
         jLabel1.setFont(new java.awt.Font("Menlo", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Community Admin Login");

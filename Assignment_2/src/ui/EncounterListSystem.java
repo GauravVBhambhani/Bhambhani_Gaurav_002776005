@@ -58,6 +58,8 @@ public class EncounterListSystem extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 204));
+
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Doctor's Encounters");

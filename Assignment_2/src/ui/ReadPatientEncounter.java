@@ -45,11 +45,11 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jcbDocUsername = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jcbPatientUsername = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
         jComboBox4 = new javax.swing.JComboBox<>();
@@ -61,23 +61,25 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 204));
+
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Encounters");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Enc Id", "Dr Name", "Dr Username", "Patient Name", "Patient Username", "Apt Date", "Apt Time"
+                "Enc Id", "Dr Username", "Patient Username", "Apt Date", "Apt Time"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -86,20 +88,20 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jButton3.setText("View");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnView.setText("View");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnViewActionPerformed(evt);
             }
         });
 
         jLabel7.setText("Dr Username");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbDocUsername.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel2.setText("Patient Username");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbPatientUsername.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel8.setText("Apt Date");
 
@@ -143,7 +145,7 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
             .addComponent(jScrollPane1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(262, 262, 262))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -157,8 +159,8 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
                                     .addComponent(jLabel2))
                                 .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jcbDocUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jcbPatientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(createCounterBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -196,18 +198,18 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbDocUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbPatientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
                     .addComponent(jLabel2)
                     .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -221,7 +223,7 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
         int selectedRowIndex = jTable1.getSelectedRow();
         if (selectedRowIndex < 0) {
@@ -239,7 +241,7 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
                 break;
             }
         }
-        jComboBox1.setSelectedIndex(docIndex);
+        jcbDocUsername.setSelectedIndex(docIndex);
 
         int patIndex = 0;
         for(int i = 0; i < this.healthSystem.getPatientDirectory().getPatients().size(); i++){
@@ -249,7 +251,7 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
                 break;
             }
         }
-        jComboBox2.setSelectedIndex(patIndex);
+        jcbPatientUsername.setSelectedIndex(patIndex);
 
         Calendar c = Calendar.getInstance();
         c.setTime(encounter.getDate());
@@ -264,16 +266,16 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
         jComboBox6.setSelectedItem(String.valueOf(splitTime[0]));
         jComboBox7.setSelectedItem(String.valueOf(splitTime[1]));
 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnViewActionPerformed
 
     private void createCounterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCounterBtnActionPerformed
         // TODO add your handling code here:
-        if (jComboBox1.getSelectedItem() == null) {
+        if (jcbDocUsername.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(this, "Select a doctor first");
             return;
         }
 
-        if (jComboBox2.getSelectedItem() == null) {
+        if (jcbPatientUsername.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(this, "Select a patient first");
             return;
         }
@@ -303,8 +305,8 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
             return;
         }
 
-        String docUsername = jComboBox1.getSelectedItem().toString();
-        String patientUsername = jComboBox2.getSelectedItem().toString();
+        String docUsername = jcbDocUsername.getSelectedItem().toString();
+        String patientUsername = jcbPatientUsername.getSelectedItem().toString();
 
         String time = jComboBox6.getSelectedItem().toString();
         String ampm = jComboBox7.getSelectedItem().toString();
@@ -355,12 +357,12 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Encounter encounter = (Encounter) model.getValueAt(selectedRowIndex, 0);
 
-        if (jComboBox1.getSelectedItem() == null) {
+        if (jcbDocUsername.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(this, "Select a doctor first");
             return;
         }
 
-        if (jComboBox2.getSelectedItem() == null) {
+        if (jcbPatientUsername.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(this, "Select a patient first");
             return;
         }
@@ -390,8 +392,8 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
             return;
         }
 
-        String docUsername = jComboBox1.getSelectedItem().toString();
-        String patientUsername = jComboBox2.getSelectedItem().toString();
+        String docUsername = jcbDocUsername.getSelectedItem().toString();
+        String patientUsername = jcbPatientUsername.getSelectedItem().toString();
 
         String time = jComboBox6.getSelectedItem().toString();
         String ampm = jComboBox7.getSelectedItem().toString();
@@ -452,20 +454,20 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
 
     private void populateDoctorComboBox() {
         
-        jComboBox1.removeAllItems();
+        jcbDocUsername.removeAllItems();
         
         for(Doctor c : this.healthSystem.getDoctorDirectory().getDoctors()){
-            jComboBox1.addItem(c.getUserName());
+            jcbDocUsername.addItem(c.getUserName());
         }
         
     }
     
     private void populatePatientComboBox() {
         
-        jComboBox2.removeAllItems();
+        jcbPatientUsername.removeAllItems();
         
         for(Patient c : this.healthSystem.getPatientDirectory().getPatients()){
-            jComboBox2.addItem(c.getUserName());
+            jcbPatientUsername.addItem(c.getUserName());
         }
         
     }
@@ -478,11 +480,11 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
             Object[] row = new Object[7];
             row[0] = hs;                     
             row[1] = hs.getDoctorId();
-            row[2] = hs.getDoctorId();
-            row[3] = hs.getPatientId();
-            row[4] = hs.getPatientId();
-            row[5] = hs.getDate();
-            row[6] = hs.getTime();
+//            row[2] = hs.getDoctorId();
+            row[2] = hs.getPatientId();
+//            row[4] = hs.getPatientId();
+            row[3] = hs.getDate();
+            row[4] = hs.getTime();
             model.addRow(row);
 
         }
@@ -490,12 +492,10 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnView;
     private javax.swing.JButton createCounterBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
@@ -508,5 +508,7 @@ public class ReadPatientEncounter extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JComboBox<String> jcbDocUsername;
+    private javax.swing.JComboBox<String> jcbPatientUsername;
     // End of variables declaration//GEN-END:variables
 }
