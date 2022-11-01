@@ -16,11 +16,11 @@ public class CityDirectory {
     
     public CityDirectory() {
         cities = new ArrayList<>();
-        City city = new City("Nashik");
-        city.addCommunity(new Community("Allston"));
+        City city = new City("New York");
+        city.addCommunity(new Community("Harlem"));
         
-        City city1 = new City("Bhilwara");
-        city1.addCommunity(new Community("Boylston"));
+        City city1 = new City("California");
+        city1.addCommunity(new Community("Los Angeles"));
         
         City city2 = new City("Boston");
         

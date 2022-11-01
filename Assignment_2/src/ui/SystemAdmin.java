@@ -46,7 +46,7 @@ public class SystemAdmin extends javax.swing.JPanel {
         jLabel1.setText("System Admin Controls");
 
         jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jButton1.setText("See Patient List");
+        jButton1.setText("Manage Patients");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -54,7 +54,7 @@ public class SystemAdmin extends javax.swing.JPanel {
         });
 
         jButton2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jButton2.setText("See Doctor List");
+        jButton2.setText("Manage Doctors");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -62,7 +62,7 @@ public class SystemAdmin extends javax.swing.JPanel {
         });
 
         jButton3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jButton3.setText("See Hospitals");
+        jButton3.setText("Manage Hospitals");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -70,7 +70,7 @@ public class SystemAdmin extends javax.swing.JPanel {
         });
 
         jButton4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jButton4.setText("See Encounters");
+        jButton4.setText("Manage Encounters");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -85,11 +85,10 @@ public class SystemAdmin extends javax.swing.JPanel {
                 .addContainerGap(194, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)))
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE))
                 .addGap(175, 175, 175))
         );
         layout.setVerticalGroup(
