@@ -27,8 +27,8 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="splitPane" pref="752" max="32767" attributes="0"/>
-              <EmptySpace min="0" pref="53" max="32767" attributes="0"/>
+              <Component id="splitPane" pref="650" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -66,7 +66,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnSystemAdmin" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnHospitalAdmin" alignment="0" pref="237" max="32767" attributes="0"/>
+                  <Component id="btnHospitalAdmin" alignment="0" pref="183" max="32767" attributes="0"/>
                   <Component id="btnDoctorLogin" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnPatientLogin" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnCommunityAdmin" alignment="0" max="32767" attributes="0"/>
