@@ -5,50 +5,35 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author gorubhambhani
  */
 public class HospitalDirectory {
-    
-    private ArrayList<Hospital> hospitalDatabase;
-    
-    public HospitalDirectory(){
-        hospitalDatabase = new ArrayList<>();
+    private List<Hospital> hospitals;
+    private City city;
+
+    public HospitalDirectory() {
+        this.hospitals = new ArrayList<>();
+        this.city = city;
     }
 
-    public ArrayList<Hospital> getHospitalDatabase() {
-        return hospitalDatabase;
+    public City getCity() {
+        return city;
     }
 
-    public void setHospitalDatabase(ArrayList<Hospital> hospitalDatabase) {
-        this.hospitalDatabase = hospitalDatabase;
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public List<Hospital> getHospitals() {
+        return hospitals;
+    }
+
+    public void setHospitals(List<Hospital> hospitals) {
+        this.hospitals = hospitals;
     }
     
-    public Hospital addNewHospital() {
-        Hospital newHospital = new Hospital();
-        hospitalDatabase.add(newHospital);
-        return newHospital;
-    }
-    
-    public void deleteHospital(Hospital selectedHospital) {
-        hospitalDatabase.remove(selectedHospital);
-    }
-    
-    public void updateHospital(Hospital selectedHospital, int index) {
-        hospitalDatabase.set(index, selectedHospital);
-    }
-    
-    public ArrayList<Hospital> searchHospital(String key) {
-        ArrayList<Hospital> searchHospital = new ArrayList();
-        for (Hospital hospital: hospitalDatabase){
-            if (hospital.getHospitalName().equals(key)) {
-                if (hospital.getHospitalName()!=null){
-                    searchHospital.add(hospital);
-                }
-            }
-        }
-        return searchHospital;
-    }
 }

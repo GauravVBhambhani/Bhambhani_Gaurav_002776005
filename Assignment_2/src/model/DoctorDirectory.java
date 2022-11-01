@@ -5,51 +5,30 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author gorubhambhani
  */
 public class DoctorDirectory {
+    private List<Doctor> doctors;
+
+
+    public DoctorDirectory() {
+        this.doctors = new ArrayList<>();
+    }
     
-    private ArrayList<Doctor> doctorDatabase;
-    
-    public DoctorDirectory(){
-        doctorDatabase = new ArrayList<>();
+    public List<Doctor> getDoctors() {
+        return doctors;
     }
 
-    public ArrayList<Doctor> getDoctorDatabase() {
-        return doctorDatabase;
-    }
-
-    public void setPatientDatabase(ArrayList<Doctor> doctorDatabase) {
-        this.doctorDatabase = doctorDatabase;
+    public void setDoctors(List<Doctor> doctors) {
+        this.doctors = doctors;
     }
     
-    public Doctor addNewDoctor(){
-        Doctor newDoctor = new Doctor();
-        doctorDatabase.add(newDoctor);
-        return newDoctor;
-    }
-    
-    public void deleteDoctor(Doctor selectedDoctor){
-        doctorDatabase.remove(selectedDoctor);
-    }
-    
-    public void updateDoctor(Doctor selectedDoctor, int index){
-        doctorDatabase.set(index, selectedDoctor);
-    }
-    
-    public ArrayList<Doctor> searchDoctorId(String key){
-        ArrayList<Doctor> searchDoctorId = new ArrayList();
-        for (Doctor doctor: doctorDatabase){
-            if (doctor.getDoctorId().equals(key)){
-                if (doctor.getDoctorId()!= null){
-                    searchDoctorId.add(doctor);
-                }
-            }
-        }
-        return searchDoctorId;
+    public void addDoctor(Doctor doctor) {
+        this.doctors.add(doctor);
     }
     
 }

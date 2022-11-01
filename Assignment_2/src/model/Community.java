@@ -5,40 +5,39 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author gorubhambhani
  */
 public class Community {
-    
-    private String communityName;
-//    private HospitalDirectory hospital = new HospitalDirectory();
-    private ArrayList<Hospital> hospitalDatabase;
+    private String community;
+    private List<House> houses;
 
-    public Community(){
-        communityName = "";
+    public List<House> getHouses() {
+        return houses;
     }
-    
-    public Community(String community){
-        communityName = community;
+
+    public void setHouses(List<House> houses) {
+        this.houses = houses;
     }
     
-    public String getCommunityName() {
-        return communityName;
+    public Community(String comm){
+        community = comm;
+        houses = new ArrayList<>();
     }
 
-    public void setCommunityName(String communityName) {
-        this.communityName = communityName;
+    public String getCommunity() {
+        return community;
     }
 
-    public ArrayList<Hospital> getHospitalDatabase() {
-        return hospitalDatabase;
+    public void setCommunity(String community) {
+        this.community = community;
     }
-
-    public void setHospitalDatabase(ArrayList<Hospital> hospitalDatabase) {
-        this.hospitalDatabase = hospitalDatabase;
-    }
-
     
+    @Override
+    public String toString() {
+        return community;
+    }
 }

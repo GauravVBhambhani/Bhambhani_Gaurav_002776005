@@ -11,44 +11,21 @@ import java.util.ArrayList;
  * @author gorubhambhani
  */
 public class PatientDirectory {
-    
-    private ArrayList<Patient> patientDatabase;
-    
-    public PatientDirectory(){
-        patientDatabase = new ArrayList<>();
+     private ArrayList<Patient> patients;
+
+    public PatientDirectory() {
+        patients = new ArrayList<>();
     }
 
-    public ArrayList<Patient> getPatientDatabase() {
-        return patientDatabase;
+    public void addPatients(Patient patient) {
+        patients.add(patient);
     }
 
-    public void setPatientDatabase(ArrayList<Patient> patientDatabase) {
-        this.patientDatabase = patientDatabase;
+    public ArrayList<Patient> getPatients() {
+        return patients;
     }
-    
-    public Patient addNewPatient(){
-        Patient newPatient = new Patient();
-        patientDatabase.add(newPatient);
-        return newPatient;
-    }
-    
-    public void deletePatient(Patient selectedPatient){
-        patientDatabase.remove(selectedPatient);
-    }
-    
-    public void updatePatient(Patient selectedPatient, int index){
-        patientDatabase.set(index, selectedPatient);
-    }
-    
-    public ArrayList<Patient> searchPatientId(String key){
-        ArrayList<Patient> searchPatientId = new ArrayList();
-        for (Patient patient: patientDatabase){
-            if (patient.getPatientId().equals(key)){
-                if (patient.getPatientId()!= null){
-                    searchPatientId.add(patient);
-                }
-            }
-        }
-        return searchPatientId;
+
+    public void setPatients(ArrayList<Patient> patients) {
+        this.patients = patients;
     }
 }

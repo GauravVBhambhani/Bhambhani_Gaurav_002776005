@@ -10,10 +10,23 @@ package model;
  */
 public class Hospital {
     private String hospitalName;
-    private int hospitalId;
-    
-    //patient and doctor directory
-    
+    private City city;
+    private Community community;
+
+    public Community getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Community community) {
+        this.community = community;
+    }
+
+    public Hospital(String hospitalName, City city, Community community) {
+        this.hospitalName = hospitalName;
+        this.city = city;
+        this.community = community;
+    }
+
     public String getHospitalName() {
         return hospitalName;
     }
@@ -22,16 +35,17 @@ public class Hospital {
         this.hospitalName = hospitalName;
     }
 
-    public int getHospitalId() {
-        return hospitalId;
+    public City getCity() {
+        return city;
     }
 
-    public void setHospitalId(int hospitalId) {
-        this.hospitalId = hospitalId;
+    public void setCity(City city) {
+        this.city = city;
     }
     
-//    @Override
-//    public String toString(){
-//        return hospitalId;
-//    }
+    @Override
+    public String toString() {
+        return this.hospitalName;
+    }
+    
 }

@@ -4,36 +4,67 @@
  */
 package model;
 
-import model.House;
-import model.Community;
-import model.City;
-import model.Patient;
-import model.Doctor;
-
+import data.Address;
+import data.Gender;
+import java.util.Date;
 
 /**
  *
  * @author gorubhambhani
  */
 public class Person {
-    
-    private String name;
+    private String fname; 
+    private String lname;
     private int age;
-    private String gender;
-    private String mobile;
-    private House house = new House();
-    private Community community = new Community();
-    private City city = new City();
-    
-    private Patient patient;
-    private Doctor doctor;
+    private Gender gender;
+    private House residence; 
+    private long cellNumber;
+    private String userName;
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    private String password;
+
+    public Person(String fname, String lname, int age, Gender gender, 
+            House residence, long cellNumber, String userName, String password) {
+        this.fname = fname;
+        this.lname = lname;
+        this.age = age;
+        this.gender = gender;
+        this.residence = residence;
+        this.cellNumber = cellNumber;
+        this.userName = userName;
+        this.password = password;
+    } 
+
+    
+    public String getFname() {
+        return fname;
+    }
+
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
     }
 
     public int getAge() {
@@ -44,64 +75,32 @@ public class Person {
         this.age = age;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
-    public String getMobile() {
-        return mobile;
+    public House getResidence() {
+        return residence;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setResidence(House residence) {
+        this.residence = residence;
     }
 
-    public House getHouse() {
-        return house;
+    public long getCellNumber() {
+        return cellNumber;
     }
 
-    public void setHouse(House house) {
-        this.house = house;
-    }
-
-    public Community getCommunity() {
-        return community;
-    }
-
-    public void setCommunity(Community community) {
-        this.community = community;
-    }
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
-
-    public Doctor getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
+    public void setCellNumber(long cellNumber) {
+        this.cellNumber = cellNumber;
     }
     
-    
-    
-
-    
+    @Override
+    public String toString() {
+        return userName;
+    }
 }

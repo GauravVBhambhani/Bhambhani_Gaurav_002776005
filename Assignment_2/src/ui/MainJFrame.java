@@ -4,9 +4,7 @@
  */
 package ui;
 
-import ui.Patient.CreatePatientJPanel;
-import model.Patient;
-import model.PatientDirectory;
+import model.HealthSystem;
 
 /**
  *
@@ -18,13 +16,12 @@ public class MainJFrame extends javax.swing.JFrame {
      * Creates new form MainJFrameEmp
      */
     
-    PatientDirectory patientDatabase;
-    Patient patient;
+    private HealthSystem healthSystem;
     
     public MainJFrame() {
         initComponents();
         
-        patientDatabase = new PatientDirectory();
+        healthSystem = new HealthSystem();
     }
 
     /**
@@ -38,93 +35,149 @@ public class MainJFrame extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         controlPanel = new javax.swing.JPanel();
-        communityAdminButton = new javax.swing.JButton();
-        HospitalAdminButton = new javax.swing.JButton();
-        createDoctorButton = new javax.swing.JButton();
-        createPatientButton = new javax.swing.JButton();
-        createPatientButton1 = new javax.swing.JButton();
-        createPatientButton2 = new javax.swing.JButton();
-        systemAdminButton1 = new javax.swing.JButton();
+        btnCommunityAdmin = new javax.swing.JButton();
+        btnHospitalAdmin = new javax.swing.JButton();
+        btnPatientLogin = new javax.swing.JButton();
+        btnDoctorLogin = new javax.swing.JButton();
+        btnSystemAdmin = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         workArea = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        communityAdminButton.setText("Com Adm");
+        splitPane.setDividerLocation(250);
+        splitPane.setToolTipText("");
 
-        HospitalAdminButton.setText("Hosp Adm");
+        controlPanel.setBackground(new java.awt.Color(255, 204, 204));
+        controlPanel.setForeground(new java.awt.Color(255, 204, 204));
 
-        createDoctorButton.setText("Crt Doctor");
-
-        createPatientButton.setText("Crt Patient");
-        createPatientButton.addActionListener(new java.awt.event.ActionListener() {
+        btnCommunityAdmin.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        btnCommunityAdmin.setText("Community Admin");
+        btnCommunityAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createPatientButtonActionPerformed(evt);
+                btnCommunityAdminActionPerformed(evt);
             }
         });
 
-        createPatientButton1.setText("Patient log");
-        createPatientButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnHospitalAdmin.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        btnHospitalAdmin.setText("Hospital Admin");
+        btnHospitalAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createPatientButton1ActionPerformed(evt);
+                btnHospitalAdminActionPerformed(evt);
             }
         });
 
-        createPatientButton2.setText("Doctor log");
-        createPatientButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnPatientLogin.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        btnPatientLogin.setText("Patient Login");
+        btnPatientLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createPatientButton2ActionPerformed(evt);
+                btnPatientLoginActionPerformed(evt);
             }
         });
 
-        systemAdminButton1.setText("Sys Adm");
+        btnDoctorLogin.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        btnDoctorLogin.setText("Doctor Login");
+        btnDoctorLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDoctorLoginActionPerformed(evt);
+            }
+        });
+
+        btnSystemAdmin.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        btnSystemAdmin.setText("System Admin");
+        btnSystemAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSystemAdminActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Menlo", 0, 18)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Admin Control");
+
+        jLabel5.setFont(new java.awt.Font("Menlo", 0, 18)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Public Portal");
 
         javax.swing.GroupLayout controlPanelLayout = new javax.swing.GroupLayout(controlPanel);
         controlPanel.setLayout(controlPanelLayout);
         controlPanelLayout.setHorizontalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnSystemAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnHospitalAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+            .addComponent(btnDoctorLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnPatientLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnCommunityAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(controlPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(createDoctorButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(createPatientButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(createPatientButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(createPatientButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(systemAdminButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(HospitalAdminButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(communityAdminButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
-                .addGap(148, 148, 148)
-                .addComponent(communityAdminButton)
-                .addGap(18, 18, 18)
-                .addComponent(HospitalAdminButton)
-                .addGap(18, 18, 18)
-                .addComponent(systemAdminButton1)
-                .addGap(18, 18, 18)
-                .addComponent(createDoctorButton)
-                .addGap(18, 18, 18)
-                .addComponent(createPatientButton)
-                .addGap(18, 18, 18)
-                .addComponent(createPatientButton1)
-                .addGap(18, 18, 18)
-                .addComponent(createPatientButton2)
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap(199, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSystemAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnHospitalAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCommunityAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDoctorLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnPatientLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(209, 209, 209))
         );
 
         splitPane.setLeftComponent(controlPanel);
+
+        workArea.setBackground(new java.awt.Color(204, 255, 204));
+
+        jLabel1.setFont(new java.awt.Font("Lantinghei SC", 3, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Hospital Management Java Application");
+
+        jLabel2.setFont(new java.awt.Font("Menlo", 0, 18)); // NOI18N
+        jLabel2.setText("Developed by: Gaurav Bhambhani");
+
+        jLabel3.setFont(new java.awt.Font("Menlo", 0, 18)); // NOI18N
+        jLabel3.setText("NUID: 002776005");
 
         javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 592, Short.MAX_VALUE)
+            .addGroup(workAreaLayout.createSequentialGroup()
+                .addGroup(workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, workAreaLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, workAreaLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2)))
+                .addContainerGap())
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(workAreaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 616, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addGap(11, 11, 11))
         );
 
         splitPane.setRightComponent(workArea);
@@ -134,7 +187,7 @@ public class MainJFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(splitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -145,20 +198,35 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void createPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createPatientButtonActionPerformed
+    private void btnPatientLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientLoginActionPerformed
         // TODO add your handling code here:
-        CreatePatientJPanel createPanel = new CreatePatientJPanel(patientDatabase, patient);
-        splitPane.setRightComponent(createPanel);
-        
-    }//GEN-LAST:event_createPatientButtonActionPerformed
+        PatientLogin patientLogin = new PatientLogin(splitPane, healthSystem);
+         splitPane.setRightComponent(patientLogin);
+    }//GEN-LAST:event_btnPatientLoginActionPerformed
 
-    private void createPatientButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createPatientButton1ActionPerformed
+    private void btnDoctorLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_createPatientButton1ActionPerformed
+        DoctorLogin doctorLogin = new DoctorLogin(splitPane, healthSystem);
+         splitPane.setRightComponent(doctorLogin);
+    }//GEN-LAST:event_btnDoctorLoginActionPerformed
 
-    private void createPatientButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createPatientButton2ActionPerformed
+    private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_createPatientButton2ActionPerformed
+        SystemLogin systemLogin = new SystemLogin(splitPane, healthSystem);
+         splitPane.setRightComponent(systemLogin);
+    }//GEN-LAST:event_btnSystemAdminActionPerformed
+
+    private void btnHospitalAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalAdminActionPerformed
+        // TODO add your handling code here:
+        HospitalLogin hospitalLogin = new HospitalLogin(splitPane, healthSystem);
+         splitPane.setRightComponent(hospitalLogin);
+    }//GEN-LAST:event_btnHospitalAdminActionPerformed
+
+    private void btnCommunityAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommunityAdminActionPerformed
+        // TODO add your handling code here:
+        CommunityLogin communityLogin = new CommunityLogin(splitPane, healthSystem);
+         splitPane.setRightComponent(communityLogin);
+    }//GEN-LAST:event_btnCommunityAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,15 +265,18 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton HospitalAdminButton;
-    private javax.swing.JButton communityAdminButton;
+    private javax.swing.JButton btnCommunityAdmin;
+    private javax.swing.JButton btnDoctorLogin;
+    private javax.swing.JButton btnHospitalAdmin;
+    private javax.swing.JButton btnPatientLogin;
+    private javax.swing.JButton btnSystemAdmin;
     private javax.swing.JPanel controlPanel;
-    private javax.swing.JButton createDoctorButton;
-    private javax.swing.JButton createPatientButton;
-    private javax.swing.JButton createPatientButton1;
-    private javax.swing.JButton createPatientButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JSplitPane splitPane;
-    private javax.swing.JButton systemAdminButton1;
     private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,58 +14,51 @@ import java.util.Date;
  */
 public class VitalSigns {
     
-    private int respiratoryRate;
-    private int heartRate;
-    private int bloodPressure;
-    private int weight;
-    private Date timestamp;
+    private double temp;
+    private int pulse;
+    private int oxygenLevel;
+    private long bp;
     
-    public int getRespiratoryRate() {
-        return respiratoryRate;
+    public VitalSigns() {
+        
     }
-    
-    public void setRespiratoryRate(int respiratoryRate) {
-        this.respiratoryRate = respiratoryRate;
+
+    public VitalSigns(double temp, int pulse, int oxygenLevel, long bp) {
+        this.temp = temp;
+        this.pulse = pulse;
+        this.oxygenLevel = oxygenLevel;
+        this.bp = bp;
     }
-    
-    public int getHeartRate() {
-        return heartRate;
+
+    public double getTemp() {
+        return temp;
     }
-    
-    public void setHeartRate(int heartRate) {
-        this.heartRate = heartRate;
+
+    public void setTemp(double temp) {
+        this.temp = temp;
     }
-    
-    public int getBloodPressure() {
-        return bloodPressure;
+
+    public int getPulse() {
+        return pulse;
     }
-    
-    public void setBloodPressure(int bloodPressure) {
-        this.bloodPressure = bloodPressure;
+
+    public void setPulse(int pulse) {
+        this.pulse = pulse;
     }
-    
-    public int getWeight() {
-        return weight;
+
+    public int getOxygenLevel() {
+        return oxygenLevel;
     }
-    
-    public void setWeight(int weight) {
-        this.weight = weight;
+
+    public void setOxygenLevel(int oxygenLevel) {
+        this.oxygenLevel = oxygenLevel;
     }
-    
-    public Date getTimestamp() {
-        return timestamp;
+
+    public long getBp() {
+        return bp;
     }
-    
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
+
+    public void setBp(long bp) {
+        this.bp = bp;
     }
-    
-    @Override
-    public String toString() {
-        SimpleDateFormat ft = new SimpleDateFormat("MM/dd/yyyy 'at' hh:mm:ss a");
-        return ft.format(timestamp);
-    }
-    
-    
-    
 }

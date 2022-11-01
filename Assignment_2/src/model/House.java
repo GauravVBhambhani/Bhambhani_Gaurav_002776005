@@ -9,23 +9,22 @@ package model;
  * @author gorubhambhani
  */
 public class House {
-    private String houseName;
-    
-    public House(String house){
-        houseName = house;
+    private String address;
+
+    public House(String address) {
+        this.address = address;
     }
 
-    public House() {
-        houseName = "";
+    public String getAddress() {
+        return address;
     }
 
-    public String getHouseName() {
-        return houseName;
-    }
-
-    public void setHouseName(String houseName) {
-        this.houseName = houseName;
+    public void setAddress(String address) {
+        this.address = address;
     }
     
-    
+    @Override
+    public String toString() {
+        return address;
+    }
 }

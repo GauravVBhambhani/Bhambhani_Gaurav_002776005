@@ -5,6 +5,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -12,17 +13,22 @@ import java.util.ArrayList;
  */
 
 public class City {
-    private String cityName;
-    private ArrayList<Community> community;
+     private String cityName;
+    private List<Community> communities;
 
-    public City(String cityName){
-        this.cityName = cityName;
+    public List<Community> getCommunities() {
+        return communities;
     }
 
-    public City() {
-        cityName = "";
+    public void setCommunities(List<Community> communities) {
+        this.communities = communities;
     }
     
+    public City(String c){
+        cityName = c;
+        communities = new ArrayList<>();
+    }
+
     public String getCityName() {
         return cityName;
     }
@@ -30,15 +36,15 @@ public class City {
     public void setCityName(String cityName) {
         this.cityName = cityName;
     }
-
-    public ArrayList<Community> getCommunity() {
-        return community;
-    }
-
-    public void setCommunity(ArrayList<Community> community) {
-        this.community = community;
+      public void addCommunity(Community c){
+        communities.add(c);
     }
     
+    public void removeCommunity(Community c){
+    }
     
-    
+    @Override
+    public String toString() {
+        return cityName;
+    }
 }

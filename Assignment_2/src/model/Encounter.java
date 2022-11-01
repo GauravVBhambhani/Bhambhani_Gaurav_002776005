@@ -4,32 +4,55 @@
  */
 package model;
 
+import java.util.Date;
+
 
 /**
  *
  * @author gorubhambhani
  */
 public class Encounter {
-    private String patientId;
+    private VitalSigns vitalSign;
+    private String diagnosis;
+    private Date date;
+    private String time;
+    private double encId;
     private String doctorId;
-    private DateTime datetime;
-    
-    public Encounter(String patientId, String doctorId, DateTime datetime){
-        this.patientId = patientId;
+    private String patientId;
+
+    public Encounter(VitalSigns vitalSign, String diagnosis, String time,
+            Date date, double encId, String doctorId, String patientId) {
+        this.vitalSign = vitalSign;
+        this.diagnosis = diagnosis;
+        this.date = date;
+        this.encId = encId;
         this.doctorId = doctorId;
-        this.datetime = datetime;
-    }
-    
-    public Encounter(){
-        this.datetime = new DateTime();
-    }
-
-    public String getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(String patientId) {
         this.patientId = patientId;
+        this.time = time;
+    }
+
+    public VitalSigns getVitalSign() {
+        return vitalSign;
+    }
+
+    public void setVitalSign(VitalSigns vitalSign) {
+        this.vitalSign = vitalSign;
+    }
+
+    public String getDiagnosis() {
+        return diagnosis;
+    }
+
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
+    }
+
+    public double getEncId() {
+        return encId;
+    }
+
+    public void setEncId(double encId) {
+        this.encId = encId;
     }
 
     public String getDoctorId() {
@@ -40,17 +63,32 @@ public class Encounter {
         this.doctorId = doctorId;
     }
 
-    public DateTime getDatetime() {
-        return datetime;
+    public String getPatientId() {
+        return patientId;
     }
 
-    public void setDatetime(DateTime datetime) {
-        this.datetime = datetime;
+    public void setPatientId(String patientId) {
+        this.patientId = patientId;
     }
-    
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
     @Override
-    public String toString(){
-        return "Encounter[patientId="+patientId+", doctorId="+doctorId+"]";
+    public String toString() {
+        return String.valueOf(encId);
     }
-    
 }

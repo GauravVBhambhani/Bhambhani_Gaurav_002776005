@@ -4,47 +4,28 @@
  */
 package model;
 
+import data.Gender;
+
 /**
  *
  * @author gorubhambhani
  */
-public class Doctor {
-    private String doctorId;
-    private String doctorPassword;
+public class Doctor extends Person {
+    private String hospitalName;
     
-    private EncounterHistory encounterHistory;
-    private Encounter encounter;
-
-    public String getDoctorId() {
-        return doctorId;
+    public Doctor(String fname, String lname, int age, 
+            Gender gender, House residence, long cellNumber, 
+            String userName, String password, String hospitalName) {
+        super(fname, lname, age, gender, residence, cellNumber, userName, password);
+        this.hospitalName = hospitalName;
     }
 
-    public void setDoctorId(String doctorId) {
-        this.doctorId = doctorId;
+    public String getHospitalName() {
+        return hospitalName;
     }
 
-    public String getDoctorPassword() {
-        return doctorPassword;
-    }
-
-    public void setDoctorPassword(String doctorPassword) {
-        this.doctorPassword = doctorPassword;
-    }
-
-    public EncounterHistory getEncounterHistory() {
-        return encounterHistory;
-    }
-
-    public void setEncounterHistory(EncounterHistory encounterHistory) {
-        this.encounterHistory = encounterHistory;
-    }
-
-    public Encounter getEncounter() {
-        return encounter;
-    }
-
-    public void setEncounter(Encounter encounter) {
-        this.encounter = encounter;
+    public void setHospitalName(String hospitalName) {
+        this.hospitalName = hospitalName;
     }
     
     
